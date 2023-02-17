@@ -1,3 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Oswald:wght@200;300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.txt-color {
+  @apply text-slate-600 dark:text-slate-200;
+}
+
+.txt-color-invert {
+  @apply text-slate-50 dark:text-slate-900;
+}
+.stroke-color{
+  @apply  stroke-slate-600 dark:stroke-slate-200 stroke-2;
+}
+.border-color{
+  @apply  border-slate-500 dark:border-slate-200 border-2 rounded-full;
+}
+.bg-color {
+  @apply bg-slate-100 dark:bg-slate-800 txt-color;
+}
+
+.btn {
+  @apply rounded-full mx-2 py-3 px-4 uppercase font-bold cursor-pointer tracking-wider border-2 dark:border-slate-200 border-slate-600;
+}
+
+.div-item {
+  @apply w-32 h-32 bg-slate-400 dark:bg-slate-500 rounded-md;
+}
+
+.absolute-center {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  text-center z-10;
+}
+
+
