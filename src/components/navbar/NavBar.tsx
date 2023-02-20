@@ -9,19 +9,21 @@ const NavBar = () => {
   const smallBarShade = {
     open: (height = 380) => ({
       clipPath: `circle(${height * 2}px at calc(100% - 80px) 48px)`,
-      opacity: 0,
+      opacity: [0, 1, 0],
       height: "450px",
       transition: {
         duration: 1,
+        times: [0, 0.6, 1],
       },
     }),
     closed: {
       clipPath: "circle(0px at calc(100% - 80px) 48px)",
-      opacity: 1,
+      opacity: [0, 0, 1, 0],
       height: "450px",
       transition: {
         delay: 0.3,
         duration: 1,
+        times: [0, 0.1, 0.4, 1],
       },
     },
   };
@@ -62,16 +64,21 @@ const NavBar = () => {
           </div>
         </motion.nav>
       </div>
-      <motion.div
-        className=""
-        variants={smallBar}
-        animate={isOpen ? "open" : "closed"}
-      ></motion.div>
-      <motion.div
-        className="absolute top-0 sm:hidden w-full bg-slate-200 dark:bg-slate-700"
-        variants={smallBarShade}
-        animate={isOpen ? "open" : "closed"}
-      />
+      <div className="sm:hidden">
+        <motion.div
+          variants={smallBar}
+          animate={isOpen ? "open" : "closed"}
+        >
+          <div>
+          <Links />
+        </div>
+        </motion.div>
+        <motion.div
+          className="absolute top-0 sm:hidden w-full bg-slate-200 dark:bg-slate-700"
+          variants={smallBarShade}
+          animate={isOpen ? "open" : "closed"}
+        />
+      </div>
     </div>
   );
 };

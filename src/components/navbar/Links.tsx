@@ -6,7 +6,7 @@ const Links = () => {
     <>
       <Link to="/1">
         <motion.button
-          className="btn"
+          className="btn z-20"
           whileTap={{ scale: 1.1 }}
           whileHover={{ scale: 1.2 }}
         >
@@ -15,7 +15,7 @@ const Links = () => {
       </Link>
       <Link to="/2">
         <motion.button
-          className="btn"
+          className="btn z-20"
           whileTap={{ scale: 1.1 }}
           whileHover={{ scale: 1.2 }}
         >

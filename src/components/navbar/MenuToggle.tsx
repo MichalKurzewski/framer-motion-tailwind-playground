@@ -1,7 +1,6 @@
-import * as React from "react";
 import { motion } from "framer-motion";
 
-interface Variants {
+interface PathVariants {
   d?: string;
   variants: {
     open: { d?: string; opacity?: number };
@@ -10,7 +9,7 @@ interface Variants {
   transition?: {};
 }
 
-const Path = (props: Variants) => (
+const Path = (props: PathVariants) => (
   <motion.path className="stroke-color"
     strokeLinecap="round"
     {...props}
