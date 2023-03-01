@@ -14,13 +14,18 @@ export default function Switcher() {
   };
   const rocketVariants = {
     init: {
-      x: "-80vw",
-      opacity:0
+      x: "-70vw",
+      opacity: 0,
     },
     animate: {
-      x: colorTheme === "light" ? "0vw" : "-80vw",
-      opacity: colorTheme === "dark" ? 0 : 1,
-      transition: { duration: 2, delay: 2 },
+      x: colorTheme === "light" ? "0vw" : ["0vw", "0.8vw", "-70vw"],
+      rotate: colorTheme === "light" ? 0 : [0, 180, 180, 0],
+      opacity: colorTheme === "light" ? 1 : [1, 1, 1, 0],
+      transition: {
+        times: colorTheme === "light" ? [] : [0, 0.3, 0.99, 1],
+        duration: 2.5,
+        delay: 3,
+      },
     },
   };
   return (
