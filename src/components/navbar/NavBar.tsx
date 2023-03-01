@@ -16,6 +16,10 @@ const NavBar = () => {
         duration: 1,
         times: [0, 0.6, 1],
       },
+      display: "block",
+      transitionEnd: {
+        display: "none",
+      },
     }),
     closed: {
       clipPath: "circle(0px at calc(100% - 80px) 48px)",
@@ -35,6 +39,8 @@ const NavBar = () => {
       height: "350px",
       transition: {
         duration: 0.5,
+        staggerChildren: 0.07,
+        delayChildren: 0.2,
       },
     },
     closed: {
@@ -42,6 +48,8 @@ const NavBar = () => {
       transition: {
         delay: 0.7,
         duration: 1,
+        staggerChildren: 0.05,
+        staggerDirection: -1,
       },
     },
   };
@@ -51,11 +59,27 @@ const NavBar = () => {
     animate: { opacity: 1 },
     exit: { opacity: 0 },
   };
-
+  
+  const smallInitVariants = {
+    initial: {
+      y: 0,
+      opacity: 0,
+      transition: {
+        y: { stiffness: 1000, velocity: -100 },
+      },
+    },
+    animate: {
+      y: 50,
+      opacity: 1,
+      transition: {
+        y: { stiffness: 1000 },
+      },
+    },
+  };
   return (
     <div className="relative">
       <div className="flex justify-between  p-6">
-        <div>
+        <div className="z-10">
           <Switcher />
         </div>
 
@@ -67,22 +91,24 @@ const NavBar = () => {
           <Links variants={initVariants} />
         </nav>
 
-        <motion.nav className="sm:hidden" animate={isOpen ? "open" : "closed"}>
+        <motion.nav
+          className="z-10 sm:hidden"
+          animate={isOpen ? "open" : "closed"}
+        >
           <div className="h-12 w-12 mr-8 border-color">
             <MenuToggle toggle={() => toggleOpen()} />
           </div>
         </motion.nav>
       </div>
+      
       <div className="sm:hidden">
         <motion.div variants={smallBar} animate={isOpen ? "open" : "closed"}>
-          <AnimatePresence>
-            <nav className="sm:hidden">
-              <Links variants={initVariants} />
-            </nav>
-          </AnimatePresence>
+          <nav className="sm:hidden">
+            <Links variants={smallInitVariants} />
+          </nav>
         </motion.div>
         <motion.div
-          className="absolute -z-10 top-0 sm:hidden w-full bg-slate-200 dark:bg-slate-700"
+          className="absolute z-10 top-0 sm:hidden w-full bg-slate-200 dark:bg-slate-700"
           variants={smallNavbarExplodeVariants}
           animate={isOpen ? "open" : "closed"}
         />
