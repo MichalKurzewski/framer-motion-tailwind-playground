@@ -1,33 +1,50 @@
-import { Dispatch, SetStateAction } from "react";
-
+// import { Dispatch, SetStateAction } from "react";
 interface IInputs {
-  setX?: Dispatch<SetStateAction<number>>;
-  xValue?: number;
-  setY?: Dispatch<SetStateAction<number>>;
-  setScale?: Dispatch<SetStateAction<number>>;
-  setRotate?: Dispatch<SetStateAction<number>>;
-  setOpacity?: Dispatch<SetStateAction<number>>;
+  name?: string;
+  set: React.Dispatch<React.SetStateAction<number>>;
+  value: number;
+  min?: number;
+  max?: number;
+  step?: number;
 }
 
-const ControlPanel = (props: IInputs) => {
+interface IInputsObjects {
+  data: IInputs[];
+}
+const ControlPanel = ({ data }: IInputsObjects) => {
+  console.log(data);
   return (
-    <div>
-      {props.setX && (
-        <input
-          min={0}
-          max={100}
-          step={1}
-          type="range"
-          value={props.xValue}
-          onChange={(e) => props.setX(Number(e.target.value))}
-        />
-      )}
-      {props.setY && <input name="y" min="-10" max="10" type="range" />}
-      {props.setScale && <input name="scale" min="0" max="10" type="range" />}
-      {props.setRotate && <input name="" min="-360" max="360" type="range" />}
-      {props.setOpacity && <input type="range" />}
+    <div className="z-10">
+      {data.map((item: IInputs, key: number) => (
+        <div key={key} className="flex justify-between gap-2">
+          <div>{item.name}</div>
+          <input
+            name={item.name}
+            type="range"
+            onChange={(e) => {
+              item.set(Number(e.target.value));
+            }}
+            value={item.value}
+            min={item.min}
+            max={item.max}
+            step={item.step}
+          />
+        </div>
+      ))}
     </div>
   );
 };
 
 export default ControlPanel;
+//  {props.data.map()<div>
+//     {props.setX && (
+//       <input
+//         min={0}
+//         max={100}
+//         step={1}
+//         type="range"
+//         value={props.xValue}
+//         onChange={(e) => props.setX(Number(e.target.value))}
+//       />
+//     )}
+//   </div>

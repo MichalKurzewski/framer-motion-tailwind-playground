@@ -13,7 +13,7 @@ const motionVariants: Variants = {
 const Item2ShapeShift = () => {
   return (
     <motion.div className="relative" drag>
-      <div className="absolute-center bg- z-10 txt-color-invert">
+      <div className="absolute-center z-10 txt-color-invert">
         Frames Shapeshift
       </div>
       <motion.div
