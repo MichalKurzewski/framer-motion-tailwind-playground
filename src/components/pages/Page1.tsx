@@ -3,6 +3,7 @@ import Item2ShapeShift from "../atomic/Item2Shapeshift";
 import Item3Opacity from "../atomic/Item3Opacity";
 import Item4Toggle90Deg from "../atomic/Item4Toggle90Deg";
 import Item5ZoomAndSplash from "../atomic/Item5ZoomAndSplash";
+import Item6LoadingSpinner from "../atomic/Item6LoadingSpinner";
 
 const Page1 = () => {
   return (
@@ -11,7 +12,8 @@ const Page1 = () => {
       <Item2ShapeShift />
       <Item3Opacity />
       <Item4Toggle90Deg />
-      <Item5ZoomAndSplash/>
+      <Item5ZoomAndSplash />
+      <Item6LoadingSpinner />
     </div>
   );
 };

@@ -16,7 +16,7 @@ const Item5ZoomAndSplash = () => {
   };
 
   return (
-    <motion.div className="cursor-pointer relative txt-color-invert" drag>
+    <motion.div className="relative txt-color-invert" drag>
       <motion.div
         className="div-item"
         variants={itemVariants}

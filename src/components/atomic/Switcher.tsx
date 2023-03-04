@@ -4,7 +4,6 @@ import { ReactComponent as Rocket } from "../../assets/svg/rocket2.svg";
 import useDarkMode from "../../hooks/useDarkMode";
 import { motion } from "framer-motion";
 
-
 export default function Switcher() {
   const { colorTheme, setTheme } = useDarkMode();
   const themeVariants = {
