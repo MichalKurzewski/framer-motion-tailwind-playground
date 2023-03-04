@@ -4,6 +4,7 @@ import Item3Opacity from "../atomic/Item3Opacity";
 import Item4Toggle90Deg from "../atomic/Item4Toggle90Deg";
 import Item5ZoomAndSplash from "../atomic/Item5ZoomAndSplash";
 import Item6LoadingSpinner from "../atomic/Item6LoadingSpinner";
+import Item7Controlled from "../atomic/Item7Controlled";
 
 const Page1 = () => {
   return (
@@ -14,6 +15,7 @@ const Page1 = () => {
       <Item4Toggle90Deg />
       <Item5ZoomAndSplash />
       <Item6LoadingSpinner />
+      <Item7Controlled />
     </div>
   );
 };
