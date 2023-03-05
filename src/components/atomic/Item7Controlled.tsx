@@ -8,6 +8,7 @@ const Item7Controlled = () => {
   const [y, setY] = useState<number>(0);
   const [scale, setScale] = useState<number>(1);
   const [rotation, setRotation] = useState<number>(0);
+
   const data = [
     {
       name: "X",

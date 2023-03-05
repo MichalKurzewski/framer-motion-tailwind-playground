@@ -1,4 +1,3 @@
-// import { Dispatch, SetStateAction } from "react";
 interface IInputs {
   name?: string;
   set: React.Dispatch<React.SetStateAction<number>>;
@@ -12,7 +11,6 @@ interface IInputsObjects {
   data: IInputs[];
 }
 const ControlPanel = ({ data }: IInputsObjects) => {
-  console.log(data);
   return (
     <div className="z-10">
       {data.map((item: IInputs, key: number) => (
@@ -36,15 +34,4 @@ const ControlPanel = ({ data }: IInputsObjects) => {
 };
 
 export default ControlPanel;
-//  {props.data.map()<div>
-//     {props.setX && (
-//       <input
-//         min={0}
-//         max={100}
-//         step={1}
-//         type="range"
-//         value={props.xValue}
-//         onChange={(e) => props.setX(Number(e.target.value))}
-//       />
-//     )}
-//   </div>
+
