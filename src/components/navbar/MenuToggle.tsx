@@ -10,14 +10,11 @@ interface PathVariants {
 }
 
 const Path = (props: PathVariants) => (
-  <motion.path className="stroke-color"
-    strokeLinecap="round"
-    {...props}
-  />
+  <motion.path className="stroke-color" strokeLinecap="round" {...props} />
 );
 
 export const MenuToggle = ({ toggle }: any) => (
-  <button className="p-2.5" onClick={toggle}>
+  <motion.button className="p-2.5" onClick={toggle}>
     <svg width="24" height="24" viewBox="0 0 20 20">
       <Path
         variants={{
@@ -40,5 +37,5 @@ export const MenuToggle = ({ toggle }: any) => (
         }}
       />
     </svg>
-  </button>
+  </motion.button>
 );

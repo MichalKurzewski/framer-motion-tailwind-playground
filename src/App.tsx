@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="bg-color h-screen">
       <NavBar />
-      <div className="App container mx-auto px-4">
+      <div className="App container mx-auto px-14 mt-6">
         <Routes>
           {Object.keys(links).map((link, index) => (
             <Route

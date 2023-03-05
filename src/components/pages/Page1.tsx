@@ -18,6 +18,7 @@ const Page1 = () => {
       <Item6LoadingSpinner />
       <Item7Controlled />
       <Item8ControlledReducer/>
+     
     </div>
   );
 };

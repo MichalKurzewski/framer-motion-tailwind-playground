@@ -2,19 +2,11 @@ import { State, Action, ControlConfig } from "../Item8ControlledReducer";
 
 interface Props {
   state: State;
-  dispatch: React.Dispatch<Action>
+  dispatch: React.Dispatch<Action>;
   controlConfigs: { [key in keyof State]: ControlConfig };
 }
 
-const ControlPanelReducer = ({
-  state,
-  dispatch,
-  controlConfigs,
-}: Props) => {
-
-  const handleControlChange = (key: keyof State, value: number) => {
-    dispatch({ type: key, payload: value });
-  };
+const ControlPanelReducer = ({ state, dispatch, controlConfigs }: Props) => {
 
   return (
     <div className="z-10">
@@ -22,10 +14,11 @@ const ControlPanelReducer = ({
         <div key={key} className="flex justify-between gap-2">
           <div>{controlConfigs[key as keyof State].name}</div>
           <input
+            className="cursor-pointer accent-slate-500"
             name={key}
             type="range"
             onChange={(e) => {
-              handleControlChange(key as keyof State, Number(e.target.value));
+              dispatch({ type: key as keyof State, payload: +e.target.value });
             }}
             min={controlConfigs[key as keyof State].min}
             max={controlConfigs[key as keyof State].max}

@@ -50,8 +50,8 @@ const reducer = (state: State, action: Action): State => {
 };
 
 const initialState = {
-  x: 50,
-  y: 50,
+  x: 0,
+  y: 0,
   scale: 1,
   rotation: 0,
   opacity: 1,
@@ -61,7 +61,7 @@ const Item8ControlledReducer = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <div className="flex justify-between gap-2 ">
-      <div className="w-[129px] h-[130px] border border-slate-100 rounded-md relative">
+      <div className="border border-slate-600 dark:border-slate-400 rounded-md relative">
         <motion.div
           drag
           animate={{
@@ -71,7 +71,7 @@ const Item8ControlledReducer = () => {
             rotate: state.rotation,
             opacity: state.opacity,
           }}
-          className="div-item w-10 h-10 bg-slate-500"
+          className="div-item"
         ></motion.div>
         <div className="absolute-center txt-color-invert">
           Controlled Element Reducer

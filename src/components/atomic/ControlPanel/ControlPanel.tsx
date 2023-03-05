@@ -17,6 +17,7 @@ const ControlPanel = ({ data }: IInputsObjects) => {
         <div key={key} className="flex justify-between gap-2">
           <div>{item.name}</div>
           <input
+            className="cursor-pointer accent-slate-500"
             name={item.name}
             type="range"
             onChange={(e) => {
