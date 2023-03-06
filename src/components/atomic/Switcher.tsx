@@ -34,7 +34,7 @@ export default function Switcher() {
         variants={themeVariants}
         initial="animate"
         animate="animate"
-        className="flex justify-start w-36 cursor-pointer"
+        className="flex justify-start w-36 cursor-pointer z-30"
         onClick={() => {
           setTheme(colorTheme);
         }}

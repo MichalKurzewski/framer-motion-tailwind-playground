@@ -7,13 +7,14 @@ const Links = ({ variants = {} }) => {
     <>
       {Object.keys(links).map((link, index) => (
         <motion.div
+        className="z-20"
           key={index}
           variants={variants}
           whileTap={{ scale: 1.1 }}
           whileHover={{ scale: 1.2 }}
         >
           <Link to={"/" + link}>
-            <button className="btn z-20">{link}</button>
+            <button className="btn">{link}</button>
           </Link>
         </motion.div>
       ))}

@@ -10,7 +10,7 @@ const NavBar = () => {
     closed: {
       clipPath: "circle(0px at calc(100% - 80px) 48px)",
       opacity: [0, 0, 1, 0],
-      height: "250px",
+      height: "280px",
       zIndex: 0,
       transition: {
         delay: 0.3,
@@ -21,7 +21,7 @@ const NavBar = () => {
     open: (height = 380) => ({
       clipPath: `circle(${height * 2}px at calc(100% - 80px) 48px)`,
       opacity: [0, 1, 0],
-      height: "250px",
+      height: "280px",
       zIndex: 0,
       transition: {
         duration: 1,
@@ -48,7 +48,7 @@ const NavBar = () => {
     },
     open: {
       display: "block",
-      height: "150px",
+      height: "180px",
       transition: {
         duration: 0.5,
         staggerChildren: 0.1,
@@ -78,22 +78,22 @@ const NavBar = () => {
   };
 
   return (
-    <div className="relative">
-      <div className="flex justify-between  p-6">
-        <div className="z-10">
+    <div>
+      <div className="flex justify-between p-6 bg-transparent">
+    
           <Switcher />
-        </div>
+ 
 
-        <div className="uppercase font-head txt-color text-xl lg:text-4xl p-2 tracking-wide hidden md:block">
+        {/* <div className="uppercase font-head txt-color text-xl lg:text-4xl p-2 tracking-wide hidden md:block">
           Michal's Framer Motion Playground
-        </div>
+        </div> */}
 
         <nav className="hidden sm:flex justify-between">
           <Links variants={initVariants} />
         </nav>
 
         <motion.nav
-          className="z-10 sm:hidden "
+          className="sm:hidden z-30"
           initial={{ originX: "35%" }}
           animate={isOpen ? "open" : "closed"}
         >
@@ -116,7 +116,7 @@ const NavBar = () => {
           </div>
         </motion.div>
         <motion.div
-          className="absolute z-10 top-0 sm:hidden w-full bg-slate-200 dark:bg-slate-700"
+          className="absolute top-0 sm:hidden w-full bg-slate-200 dark:bg-slate-700"
           variants={smallNavbarExplodeVariants}
         ></motion.div>
       </motion.div>
