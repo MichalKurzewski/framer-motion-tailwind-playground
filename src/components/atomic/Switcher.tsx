@@ -28,35 +28,30 @@ export default function Switcher() {
     },
   };
   return (
-    <>
-      <motion.button
-        id="theme-toggle"
-        variants={themeVariants}
-        initial="animate"
+    <motion.button
+      id="theme-toggle"
+      variants={themeVariants}
+      initial="animate"
+      animate="animate"
+      className="flex justify-start w-36 cursor-pointer z-30 -ml-14 sm:ml-0"
+      onClick={() => {
+        setTheme(colorTheme);
+      }}
+    >
+      <motion.div
+        className="w-10 h-10 m-1"
+        variants={rocketVariants}
+        initial="init"
         animate="animate"
-        className="flex justify-start w-36 cursor-pointer z-30"
-        onClick={() => {
-          setTheme(colorTheme);
-        }}
       >
-        <motion.div
-          className="w-10 h-10 m-1"
-          variants={rocketVariants}
-          initial="init"
-          animate="animate"
-        >
-          <Rocket className="rotate-45 dark:fill-slate-200 hidden sm:block " />
-        </motion.div>
-        {colorTheme === "light" && (
-          <Moon
-            id="moon-icon"
-            className=" fill-slate-200 w-8 h-8 m-2 stroke-0"
-          />
-        )}
-        {colorTheme === "dark" && (
-          <Sun id="sun-icon" className=" fill-slate-800 w-8 h-8 m-2" />
-        )}
-      </motion.button>
-    </>
+        <Rocket className="rotate-45 dark:fill-slate-200 hidden sm:block " />
+      </motion.div>
+      {colorTheme === "light" && (
+        <Moon id="moon-icon" className=" fill-slate-200 w-8 h-8 m-2 stroke-0" />
+      )}
+      {colorTheme === "dark" && (
+        <Sun id="sun-icon" className=" fill-slate-800 w-8 h-8 m-2" />
+      )}
+    </motion.button>
   );
 }

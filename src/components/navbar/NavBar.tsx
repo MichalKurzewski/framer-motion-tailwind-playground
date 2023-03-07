@@ -7,7 +7,7 @@ const NavBar = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const smallNavbarExplodeVariants = {
     closed: {
-      clipPath: "circle(0px at calc(100% - 80px) 48px)",
+      clipPath: "circle(0px at calc(100% - 52px) 48px)",
       opacity: [0, 0, 1, 0],
       height: "280px",
 
@@ -18,7 +18,7 @@ const NavBar = () => {
       },
     },
     open: (height = 380) => ({
-      clipPath: `circle(${height * 2}px at calc(100% - 80px) 48px)`,
+      clipPath: `circle(${height * 2}px at calc(100% - 52px) 48px)`,
       opacity: [0, 1, 0],
       height: "280px",
       transition: {
@@ -80,10 +80,6 @@ const NavBar = () => {
       <div className="flex justify-between p-6 bg-transparent">
         <Switcher />
 
-        {/* <div className="uppercase font-head txt-color text-xl lg:text-4xl p-2 tracking-wide hidden md:block">
-          Michal's Framer Motion Playground
-        </div> */}
-
         <nav className="hidden sm:flex justify-between">
           <Links variants={initVariants} />
         </nav>
@@ -92,8 +88,10 @@ const NavBar = () => {
           className="sm:hidden z-30"
           initial={{ originX: "35%" }}
           animate={isOpen ? "open" : "closed"}
+          whileTap={{ scale: 1 }}
+          whileHover={{ scale: 1.1 }}
         >
-          <div className="h-12 w-12 mr-8 border-color">
+          <div className="h-12 w-12  border-color">
             <MenuToggle toggle={() => toggleOpen()} />
           </div>
         </motion.nav>
@@ -103,7 +101,7 @@ const NavBar = () => {
         id="smallBar"
         initial="closed"
         animate={isOpen ? "open" : "closed"}
-        className="sm:hidden"
+        className="sm:hidden -mt-4"
       >
         <motion.div variants={smallBar}>
           <div className="flex justify-end">

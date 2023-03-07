@@ -41,7 +41,7 @@ const Title = () => {
     init: { originX: 0 },
     animate: {
       opacity: 1,
-      y: 300,
+      y: 350,
       scale: 3,
       transition: { duration: 1 },
     },
@@ -51,7 +51,7 @@ const Title = () => {
     init: { originX: "45%" },
     animate: {
       opacity: 1,
-      y: 400,
+      y: 450,
       scale: 3,
       transition: { duration: 1 },
     },
@@ -61,7 +61,7 @@ const Title = () => {
     init: { originX: "100%" },
     animate: {
       opacity: 1,
-      y: 500,
+      y: 550,
       scale: 3,
       transition: { duration: 1 },
     },

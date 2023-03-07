@@ -10,8 +10,8 @@ const Links = ({ variants = {} }) => {
         className="z-20"
           key={index}
           variants={variants}
-          whileTap={{ scale: 1.1 }}
-          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 1 }}
+          whileHover={{ scale: 1.1 }}
         >
           <Link to={"/" + link}>
             <button className="btn">{link}</button>

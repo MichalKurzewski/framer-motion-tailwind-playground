@@ -23,7 +23,7 @@
 }
 
 .btn {
-  @apply rounded-full mx-2 py-3 px-5 w-28 uppercase font-bold cursor-pointer tracking-wider border-2 dark:border-slate-200 border-slate-600;
+  @apply rounded-full mx-2 py-2.5 px-5 w-28 uppercase font-bold cursor-pointer tracking-wider border-2 dark:border-slate-200 border-slate-600;
 }
 
 .div-item {

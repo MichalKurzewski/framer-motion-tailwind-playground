@@ -14,7 +14,7 @@ const Path = (props: PathVariants) => (
 );
 
 export const MenuToggle = ({ toggle }: any) => (
-  <motion.button className="p-2.5" onClick={toggle}>
+  <motion.button className="p-[10.5px]" onClick={toggle} >
     <svg width="24" height="24" viewBox="0 0 20 20">
       <Path
         variants={{
