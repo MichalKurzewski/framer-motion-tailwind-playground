@@ -1,17 +1,16 @@
 import Switcher from "../atomic/Switcher";
 import Links from "./Links";
-import { motion, useCycle, AnimatePresence } from "framer-motion";
+import { motion, useCycle } from "framer-motion";
 import { MenuToggle } from "./MenuToggle";
 
 const NavBar = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
-
   const smallNavbarExplodeVariants = {
     closed: {
       clipPath: "circle(0px at calc(100% - 80px) 48px)",
       opacity: [0, 0, 1, 0],
       height: "280px",
-      zIndex: 0,
+
       transition: {
         delay: 0.3,
         duration: 1,
@@ -22,7 +21,6 @@ const NavBar = () => {
       clipPath: `circle(${height * 2}px at calc(100% - 80px) 48px)`,
       opacity: [0, 1, 0],
       height: "280px",
-      zIndex: 0,
       transition: {
         duration: 1,
         times: [0, 0.6, 1],
@@ -80,9 +78,7 @@ const NavBar = () => {
   return (
     <div>
       <div className="flex justify-between p-6 bg-transparent">
-    
-          <Switcher />
- 
+        <Switcher />
 
         {/* <div className="uppercase font-head txt-color text-xl lg:text-4xl p-2 tracking-wide hidden md:block">
           Michal's Framer Motion Playground
@@ -105,6 +101,7 @@ const NavBar = () => {
 
       <motion.div
         id="smallBar"
+        initial="closed"
         animate={isOpen ? "open" : "closed"}
         className="sm:hidden"
       >
