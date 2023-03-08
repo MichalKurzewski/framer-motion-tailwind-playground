@@ -29,6 +29,9 @@
 .div-item {
   @apply w-32 h-32 bg-slate-400 dark:bg-slate-500 rounded-md;
 }
+.div-item-dash {
+  @apply w-32 h-32 border-2 border-dashed rounded-md;
+}
 
 .absolute-center {
   @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  text-center;

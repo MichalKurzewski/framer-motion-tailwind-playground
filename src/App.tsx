@@ -15,7 +15,7 @@ export const links = {
 
 function App() {
   return (
-    <div className="bg-color h-screen relative min-w-[400px]">
+    <div className="bg-color min-h-screen relative min-w-[400px]">
       <Title />
       <NavBar />
       <div className="App container mx-auto px-14 mt-6">

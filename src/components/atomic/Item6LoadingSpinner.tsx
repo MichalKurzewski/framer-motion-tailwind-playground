@@ -49,25 +49,26 @@ const Item6LoadingSpinner = () => {
       className="relative"
       drag
       whileHover={{ opacity: 0.5 }}
-      initial={{ scale: 1.2 }}
+      initial={{ scale: 1 }}
     >
-      <motion.div className="absolute-center" animate="animate">
-        <svg className=" w-[108px] h-[108px]">
+      <motion.div className="absolute-center div-item-dash " animate="animate">
+        <svg className="">
           <path
-            className="fill-transparent w-22"
+            className="fill-transparent"
             id="text-path"
             d="
-    M 20, 56
-    a 35,35 0 0,1 70,0
-    a 35,35 0 0,1 -70,0
+    M 22, 63
+    a 40,40 0 0,1 80,0
+    a 40,40 0 0,1 -80,0
   "
           />
           <motion.text variants={loading}>
             <textPath
               xlinkHref="#text-path"
-              className="font-head dark:fill-slate-200 text-xl"
+              className="font-head dark:fill-slate-200 text-2xl"
             >
-              LOADING&emsp;&emsp; LOADING
+              
+              LOADING&emsp;&emsp;LOADING
             </textPath>
           </motion.text>
         </svg>
