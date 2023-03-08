@@ -51,13 +51,16 @@ const Item6LoadingSpinner = () => {
       whileHover={{ opacity: 0.5 }}
       initial={{ scale: 1 }}
     >
-      <motion.div className="absolute-center div-item-dash " animate="animate">
+      <motion.div
+        className="absolute-center w-40 h-40  "
+        animate="animate"
+      >
         <svg className="">
           <path
             className="fill-transparent"
             id="text-path"
             d="
-    M 22, 63
+    M 40, 80
     a 40,40 0 0,1 80,0
     a 40,40 0 0,1 -80,0
   "
@@ -67,7 +70,6 @@ const Item6LoadingSpinner = () => {
               xlinkHref="#text-path"
               className="font-head dark:fill-slate-200 text-2xl"
             >
-              
               LOADING&emsp;&emsp;LOADING
             </textPath>
           </motion.text>
