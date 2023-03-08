@@ -19,7 +19,8 @@ const Title = () => {
 
   const parentVariants: Variants = {
     init: {
-      x: isLarge?200:40,
+      opacity:1,
+      x: isLarge ? 200 : 40,
       justifyContent: "start",
       transition: {},
     },
@@ -50,10 +51,7 @@ const Title = () => {
   const secondDivVariants: Variants = {
     init: { originX: "45%" },
     animate: {
-      opacity: 1,
-      y: 450,
-      scale: 3,
-      transition: { duration: 1 },
+      transition: { staggerChildren: 0.05 },
     },
   };
 
@@ -66,6 +64,17 @@ const Title = () => {
       transition: { duration: 1 },
     },
   };
+  const secondDivLettersVariants: Variants = {
+    init: {
+    },
+    animate: {
+      y: 450,
+      scale: 3,
+      opacity: 0.5,
+      transition: { duration: 0.4 },
+      transitionEnd: {},
+    },
+  };
   console.log(
     isMedium
       ? isLarge
@@ -75,6 +84,7 @@ const Title = () => {
         : "animateMedium"
       : "animateSmall"
   );
+
   return (
     <>
       <motion.div
@@ -93,10 +103,17 @@ const Title = () => {
             Michal's
           </motion.div>
           <motion.div
-            className=" m-1.5 z-20 whitespace-nowrap"
+            className=" m-1.5 z-20 whitespace-nowrap flex justify-between w-full"
             variants={secondDivVariants}
           >
-            Framer Motion
+            {[..."Framer Motion"].map((letter: string, index: number) => (
+              <motion.div
+                key={index}
+                variants={secondDivLettersVariants}
+              >
+                {letter}
+              </motion.div>
+            ))}
           </motion.div>
           <motion.div className=" m-1.5 z-20" variants={thirdDivVariants}>
             Playground
