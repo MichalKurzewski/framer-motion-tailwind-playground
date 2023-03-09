@@ -4,12 +4,17 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 import { useAtom } from "jotai";
 import { isMenuToggledAtom } from "../../App";
 
-const Title = () => {
+interface TitleText {
+  topWord: string;
+  middleWord: string;
+  bottomWord: string;
+}
+const Title = ({ topWord, middleWord, bottomWord }: TitleText) => {
   const isXLarge = useMediaQuery("(min-width: 1280px)");
   const isLarge = useMediaQuery("(min-width: 1024px)");
   const isMedium = useMediaQuery("(min-width: 640px)");
   const [isOpen] = useAtom(isMenuToggledAtom);
-  
+
   const size = isMedium
     ? isLarge
       ? isXLarge
@@ -73,7 +78,7 @@ const Title = () => {
   const secondDivLettersVariants: Variants = {
     init: {},
     animate: {
-      y:280,
+      y: 280,
       scale: 3,
       opacity: 0.5,
       transition: { duration: 0.4 },
@@ -96,14 +101,20 @@ const Title = () => {
           className="flex items-center"
         >
           <motion.div className=" m-1.5 z-20" variants={firstDivVariants}>
-            Michal's
+            {topWord}
           </motion.div>
           <motion.div
-            className={`${isHome ? "-mt-14 xl:mt-0":""} z-20 m-1.5 whitespace-nowrap flex justify-between w-full`}
+            className={`${
+              isHome ? "-mt-14 xl:mt-0" : ""
+            } z-20 m-1.5 whitespace-nowrap flex justify-between w-full`}
             variants={secondDivVariants}
           >
-            {[..."Framer  Motion"].map((letter: string, index: number) => (
-              <motion.div key={index} variants={secondDivLettersVariants}>
+            {[...middleWord].map((letter: string, index: number) => (
+              <motion.div
+                key={index}
+                variants={secondDivLettersVariants}
+                className="whitespace-pre"
+              >
                 {letter}
               </motion.div>
             ))}
@@ -112,7 +123,7 @@ const Title = () => {
             className={`${isHome ? "-mt-32 xl:mt-0" : ""} m-1.5 z-20`}
             variants={thirdDivVariants}
           >
-            Playground
+            {bottomWord}
           </motion.div>
         </motion.div>
       </motion.div>

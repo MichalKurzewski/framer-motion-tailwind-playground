@@ -18,7 +18,7 @@ export const isMenuToggledAtom = atom(false);
 function App() {
   return (
     <main className="bg-color min-h-screen relative min-w-[400px]">
-      <Title />
+      <Title topWord="Michal's" middleWord="Framer Motion" bottomWord="Playground"/>
       <NavBar />
       <div className="App mx-auto px-1 py-6">
         <Routes>

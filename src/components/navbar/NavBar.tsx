@@ -77,6 +77,24 @@ const NavBar = () => {
     },
   };
 
+  const newLocal = <motion.div
+    id="smallBar"
+    initial="closed"
+    animate={isOpen ? "open" : "closed"}
+    className="sm:hidden -mt-4"
+  >
+    <motion.div variants={smallBar}>
+      <div className="flex justify-end">
+        <div className="flex flex-col gap-2 mr-4">
+          <Links variants={smallBarListVariants} />
+        </div>
+      </div>
+    </motion.div>
+    <motion.div
+      className="absolute top-0 sm:hidden w-full bg-zinc-300 dark:bg-slate-700"
+      variants={smallNavbarExplodeVariants}
+    ></motion.div>
+  </motion.div>;
   return (
     <div>
       <div className="flex justify-between p-6 bg-transparent">
@@ -99,24 +117,7 @@ const NavBar = () => {
         </motion.nav>
       </div>
 
-      <motion.div
-        id="smallBar"
-        initial="closed"
-        animate={isOpen ? "open" : "closed"}
-        className="sm:hidden -mt-4"
-      >
-        <motion.div variants={smallBar}>
-          <div className="flex justify-end">
-            <div className="flex flex-col gap-2 mr-4">
-              <Links variants={smallBarListVariants} />
-            </div>
-          </div>
-        </motion.div>
-        <motion.div
-          className="absolute top-0 sm:hidden w-full bg-slate-200 dark:bg-slate-700"
-          variants={smallNavbarExplodeVariants}
-        ></motion.div>
-      </motion.div>
+      {newLocal}
     </div>
   );
 };
