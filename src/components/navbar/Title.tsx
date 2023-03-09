@@ -46,7 +46,7 @@ const Title = () => {
     init: { originX: 0 },
     animate: {
       opacity: 1,
-      y: 200,
+      y: 180,
       scale: 3,
       transition: { duration: 1 },
     },
@@ -65,7 +65,7 @@ const Title = () => {
     init: { originX: "100%" },
     animate: {
       opacity: 1,
-      y: 400,
+      y: 380,
       scale: 3,
       transition: { duration: 1 },
     },
@@ -73,7 +73,7 @@ const Title = () => {
   const secondDivLettersVariants: Variants = {
     init: {},
     animate: {
-      y:300,
+      y:280,
       scale: 3,
       opacity: 0.5,
       transition: { duration: 0.4 },
@@ -99,7 +99,7 @@ const Title = () => {
             Michal's
           </motion.div>
           <motion.div
-            className="z-20 m-1.5 whitespace-nowrap flex justify-between w-full"
+            className={`${isHome ? "-mt-14 xl:mt-0":""} z-20 m-1.5 whitespace-nowrap flex justify-between w-full`}
             variants={secondDivVariants}
           >
             {[..."Framer  Motion"].map((letter: string, index: number) => (
@@ -108,7 +108,10 @@ const Title = () => {
               </motion.div>
             ))}
           </motion.div>
-          <motion.div className=" m-1.5 z-20" variants={thirdDivVariants}>
+          <motion.div
+            className={`${isHome ? "-mt-32 xl:mt-0" : ""} m-1.5 z-20`}
+            variants={thirdDivVariants}
+          >
             Playground
           </motion.div>
         </motion.div>
