@@ -41,4 +41,4 @@ const App: React.FC = () => {
   );
 };
 
- App;
+export default App;
