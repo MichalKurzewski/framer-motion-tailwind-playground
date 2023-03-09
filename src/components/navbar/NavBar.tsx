@@ -91,7 +91,7 @@ const NavBar = () => {
       </div>
     </motion.div>
     <motion.div
-      className="absolute top-0 sm:hidden w-full bg-zinc-300 dark:bg-slate-700"
+      className="absolute origin-center top-0 sm:hidden w-full bg-zinc-300 dark:bg-slate-700"
       variants={smallNavbarExplodeVariants}
     ></motion.div>
   </motion.div>;
@@ -109,7 +109,7 @@ const NavBar = () => {
           initial={{ originX: "35%" }}
           animate={isOpen ? "open" : "closed"}
           whileTap={{ scale: 1 }}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.2 }}
         >
           <div className="h-12 w-12  border-color">
             <MenuToggle toggle={() => setIsOpen(!isOpen)} />
