@@ -9,6 +9,7 @@ interface TitleText {
   middleWord: string;
   bottomWord: string;
 }
+
 const Title = ({ topWord, middleWord, bottomWord }: TitleText) => {
   const isXLarge = useMediaQuery("(min-width: 1280px)");
   const isLarge = useMediaQuery("(min-width: 1024px)");
@@ -25,67 +26,67 @@ const Title = ({ topWord, middleWord, bottomWord }: TitleText) => {
 
   const here = useLocation();
   const isHome = here.pathname === "/Home" || here.pathname === "/";
-
-  const parentVariants: Variants = {
-    init: {
-      opacity: 1,
-      x: isLarge ? 200 : 40,
-      justifyContent: "start",
-      transition: {},
-    },
-
-    animate: {
-      x: 0,
-      width: "100%",
-      justifyContent: "space-between",
-      transition: {
-        when: "afterChildren",
-        duration: 0.7,
-        staggerChildren: 0.2,
+  const variants: Record<string, Variants> = {
+    parent: {
+      init: {
+        opacity: 1,
+        x: isLarge ? 200 : 40,
+        justifyContent: "start",
+        transition: {},
       },
-      transitionEnd: {},
-    },
-  };
 
-  const firstDivVariants: Variants = {
-    init: { originX: 0 },
-    animate: {
-      opacity: 1,
-      y: 180,
-      scale: 3,
-      transition: { duration: 1 },
+      animate: {
+        x: 0,
+        width: "100%",
+        justifyContent: "space-between",
+        transition: {
+          when: "afterChildren",
+          duration: 0.7,
+          staggerChildren: 0.2,
+        },
+        transitionEnd: {},
+      },
     },
-  };
 
-  const secondDivVariants: Variants = {
-    init: {},
-    animate: {
-      marginLeft: "-68px",
-      marginRight: "-104px",
-      transition: { staggerChildren: 0.05 },
+    firstDiv: {
+      init: { originX: 0 },
+      animate: {
+        opacity: 1,
+        y: 180,
+        scale: 3,
+        transition: { duration: 1 },
+      },
     },
-  };
 
-  const thirdDivVariants: Variants = {
-    init: { originX: "100%" },
-    animate: {
-      opacity: 1,
-      y: 380,
-      scale: 3,
-      transition: { duration: 1 },
+    secondDiv: {
+      init: {},
+      animate: {
+        marginLeft: "-68px",
+        marginRight: "-104px",
+        transition: { staggerChildren: 0.05 },
+      },
     },
-  };
-  const secondDivLettersVariants: Variants = {
-    init: {},
-    animate: {
-      y: 280,
-      scale: 3,
-      opacity: 0.5,
-      transition: { duration: 0.4 },
-      transitionEnd: {},
-    },
-  };
 
+    thirdDiv: {
+      init: { originX: "100%" },
+      animate: {
+        opacity: 1,
+        y: 380,
+        scale: 3,
+        transition: { duration: 1 },
+      },
+    },
+    secondDivLetters: {
+      init: {},
+      animate: {
+        y: 280,
+        scale: 3,
+        opacity: 0.5,
+        transition: { duration: 0.4 },
+        transitionEnd: {},
+      },
+    },
+  };
   return (
     <>
       <motion.div
@@ -95,24 +96,24 @@ const Title = ({ topWord, middleWord, bottomWord }: TitleText) => {
       >
         <motion.div
           layout
-          variants={parentVariants}
+          variants={variants.parent}
           initial="init"
           animate={isHome ? "animate" : "init"}
           className="flex items-center"
         >
-          <motion.div className=" m-1.5 z-20" variants={firstDivVariants}>
+          <motion.div className=" m-1.5 z-20" variants={variants.firstDiv}>
             {topWord}
           </motion.div>
           <motion.div
             className={`${
               isHome ? "-mt-14 xl:mt-0" : ""
             } z-20 m-1.5 whitespace-nowrap flex justify-between w-full`}
-            variants={secondDivVariants}
+            variants={variants.secondDiv}
           >
             {[...middleWord].map((letter: string, index: number) => (
               <motion.div
                 key={index}
-                variants={secondDivLettersVariants}
+                variants={variants.secondDivLetters}
                 className="whitespace-pre"
               >
                 {letter}
@@ -121,7 +122,7 @@ const Title = ({ topWord, middleWord, bottomWord }: TitleText) => {
           </motion.div>
           <motion.div
             className={`${isHome ? "-mt-32 xl:mt-0" : ""} m-1.5 z-20`}
-            variants={thirdDivVariants}
+            variants={variants.thirdDiv}
           >
             {bottomWord}
           </motion.div>

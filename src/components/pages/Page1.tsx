@@ -7,7 +7,7 @@ import Item6LoadingSpinner from "../atomic/Item6LoadingSpinner";
 import Item7Controlled from "../atomic/Item7Controlled";
 import Item8ControlledReducer from "../atomic/Item8ControlledReducer";
 
-const Page1 = () => {
+const Page1:React.FC = () => {
   return (
     <div className="container mx-auto flex p-10 justify-evenly flex-wrap gap-20">
       <Item1HoverTap />

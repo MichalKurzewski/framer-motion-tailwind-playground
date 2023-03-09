@@ -15,10 +15,14 @@ export const links = {
 };
 export const isMenuToggledAtom = atom(false);
 
-function App() {
+const App: React.FC = () => {
   return (
     <main className="bg-color min-h-screen relative min-w-[400px]">
-      <Title topWord="Michal's" middleWord="Framer Motion" bottomWord="Playground"/>
+      <Title
+        topWord="Michal's"
+        middleWord="Framer Motion"
+        bottomWord="Playground"
+      />
       <NavBar />
       <div className="App mx-auto px-1 py-6">
         <Routes>
@@ -35,6 +39,6 @@ function App() {
       <Footer />
     </main>
   );
-}
+};
 
-export default App;
+ App;

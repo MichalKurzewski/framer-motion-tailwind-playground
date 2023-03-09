@@ -1,4 +1,4 @@
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <div className="absolute bottom-10 ml-2">
       <a

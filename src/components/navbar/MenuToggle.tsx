@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { MouseEventHandler } from "react";
 
 interface PathVariants {
   d?: string;
@@ -13,8 +14,12 @@ const Path = (props: PathVariants) => (
   <motion.path className="stroke-color" strokeLinecap="round" {...props} />
 );
 
-export const MenuToggle = ({ toggle }: any) => (
-  <motion.button className="p-[10.5px]" onClick={toggle} >
+export const MenuToggle = ({
+  toggle,
+}: {
+  toggle: MouseEventHandler<HTMLButtonElement>;
+}): JSX.Element => (
+  <motion.button className="p-[10.5px]" onClick={toggle}>
     <svg width="24" height="24" viewBox="0 0 20 20">
       <Path
         variants={{
