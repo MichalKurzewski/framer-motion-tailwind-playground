@@ -103,7 +103,7 @@ const NavBar = () => {
         id="smallBar"
         initial="closed"
         animate={isOpen ? "open" : "closed"}
-        className="md:hidden -mt-4"
+        className="sm:hidden -mt-4"
       >
         <motion.div variants={smallBar}>
           <div className="flex justify-end">
