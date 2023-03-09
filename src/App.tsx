@@ -6,7 +6,9 @@ import Page2 from "./components/pages/Page2";
 import Title from "./components/navbar/Title";
 import WelcomePage from "./components/pages/WelcomePage";
 import Footer from "./components/pages/Footer";
-import {atom} from 'jotai';
+import { atom } from "jotai";
+
+import { useEffect } from "react";
 
 export const links = {
   Home: <WelcomePage />,
