@@ -1,10 +1,12 @@
 import Switcher from "../atomic/Switcher";
 import Links from "./Links";
-import { motion, useCycle } from "framer-motion";
+import { motion } from "framer-motion";
 import { MenuToggle } from "./MenuToggle";
+import { useAtom } from "jotai";
+import { isMenuToggledAtom } from "../../App";
 
 const NavBar = () => {
-  const [isOpen, toggleOpen] = useCycle(false, true);
+  const [isOpen, setIsOpen] = useAtom(isMenuToggledAtom);
   const smallNavbarExplodeVariants = {
     closed: {
       clipPath: "circle(0px at calc(100% - 52px) 48px)",
@@ -92,7 +94,7 @@ const NavBar = () => {
           whileHover={{ scale: 1.1 }}
         >
           <div className="h-12 w-12  border-color">
-            <MenuToggle toggle={() => toggleOpen()} />
+            <MenuToggle toggle={() => setIsOpen(!isOpen)} />
           </div>
         </motion.nav>
       </div>
@@ -101,7 +103,7 @@ const NavBar = () => {
         id="smallBar"
         initial="closed"
         animate={isOpen ? "open" : "closed"}
-        className="sm:hidden -mt-4"
+        className="md:hidden -mt-4"
       >
         <motion.div variants={smallBar}>
           <div className="flex justify-end">
