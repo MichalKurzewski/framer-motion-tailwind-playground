@@ -9,7 +9,7 @@ import Item8ControlledReducer from "../atomic/Item8ControlledReducer";
 
 const Page1 = () => {
   return (
-    <div className="flex justify-evenly flex-wrap gap-20">
+    <div className="container mx-auto flex p-10 justify-evenly flex-wrap gap-20">
       <Item1HoverTap />
       <Item2ShapeShift />
       <Item3Opacity />
@@ -17,8 +17,7 @@ const Page1 = () => {
       <Item5ZoomAndSplash />
       <Item6LoadingSpinner />
       <Item7Controlled />
-      <Item8ControlledReducer/>
-     
+      <Item8ControlledReducer />
     </div>
   );
 };

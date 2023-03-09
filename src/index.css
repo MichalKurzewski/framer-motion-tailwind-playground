@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .txt-color {
   @apply text-slate-600 dark:text-slate-200;
 }
@@ -12,14 +11,15 @@
 .txt-color-invert {
   @apply text-slate-50 dark:text-slate-900;
 }
-.stroke-color{
-  @apply  stroke-slate-600 dark:stroke-slate-200 stroke-2;
+.stroke-color {
+  @apply stroke-slate-600 dark:stroke-slate-200 stroke-2;
 }
-.border-color{
-  @apply  border-slate-500 dark:border-slate-200 border-2 rounded-full;
+.border-color {
+  @apply border-slate-500 dark:border-slate-200 border-2 rounded-full;
 }
+
 .bg-color {
-  @apply bg-slate-100 dark:bg-slate-800 txt-color;
+  @apply  bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] dark:from-slate-700 dark:via-slate-800 dark:to-slate-900 from-slate-50 via-slate-100 to-slate-200 txt-color;
 }
 
 .btn {
@@ -30,9 +30,6 @@
   @apply w-32 h-32 bg-slate-400 dark:bg-slate-500 rounded-md;
 }
 
-
 .absolute-center {
   @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  text-center;
 }
-
-

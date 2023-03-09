@@ -17,10 +17,10 @@ export const isMenuToggledAtom = atom(false);
 
 function App() {
   return (
-    <div className="bg-color min-h-screen relative min-w-[400px]">
+    <main className="bg-color min-h-screen relative min-w-[400px]">
       <Title />
       <NavBar />
-      <div className="App mx-auto px-1 container py-6">
+      <div className="App mx-auto px-1 py-6">
         <Routes>
           {Object.keys(links).map((link, index) => (
             <Route
@@ -33,7 +33,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
-    </div>
+    </main>
   );
 }
 
