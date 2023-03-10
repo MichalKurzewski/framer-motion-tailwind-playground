@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import ControlPanel from "./ControlPanel/ControlPanel";
 
-const Item7Controlled = () => {
+const Item7Controlled = (): JSX.Element => {
   //try useReducer
   const [x, setX] = useState<number>(0);
   const [y, setY] = useState<number>(0);

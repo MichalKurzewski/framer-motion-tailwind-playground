@@ -7,9 +7,8 @@
 .txt-color {
   @apply text-slate-600 dark:text-slate-200;
 }
-
 .txt-color-invert {
-  @apply text-slate-50 dark:text-slate-900;
+  @apply text-slate-50 dark:text-slate-800;
 }
 .stroke-color {
   @apply stroke-slate-600 dark:stroke-slate-200 stroke-2;

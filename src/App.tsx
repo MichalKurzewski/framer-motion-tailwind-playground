@@ -5,10 +5,11 @@ import Page1 from "./components/pages/Page1";
 import Page2 from "./components/pages/Page2";
 import Title from "./components/navbar/Title";
 import WelcomePage from "./components/pages/WelcomePage";
-import Footer from "./components/pages/Footer";
+import GitRepo from "./components/pages/SidePanel/GitRepoLink";
 import { atom } from "jotai";
 
 import { useEffect } from "react";
+import SidePanel from "./components/pages/SidePanel/SidePanel";
 
 export const links = {
   Home: <WelcomePage />,
@@ -20,12 +21,16 @@ export const isMenuToggledAtom = atom(false);
 const App: React.FC = () => {
   return (
     <main className="bg-color min-h-screen relative min-w-[400px]">
+
+        <SidePanel />
+     
       <Title
         topWord="Michal's"
         middleWord="Framer Motion"
         bottomWord="Playground"
       />
       <NavBar />
+
       <div className="App mx-auto px-1 py-6">
         <Routes>
           {Object.keys(links).map((link, index) => (
@@ -38,7 +43,6 @@ const App: React.FC = () => {
           <Route key="welcome" path="/" element={<WelcomePage />}></Route>
         </Routes>
       </div>
-      <Footer />
     </main>
   );
 };

@@ -57,7 +57,7 @@ const initialState = {
   opacity: 1,
 };
 
-const Item8ControlledReducer = () => {
+const Item8ControlledReducer = (): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <div className="flex justify-between gap-2 ">

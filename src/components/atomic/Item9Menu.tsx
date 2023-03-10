@@ -2,16 +2,38 @@ import { useState } from "react";
 import { motion, Variants } from "framer-motion";
 
 //to stagger children animate and init must be the same and you supply only variants to the Elements
-const itemVariants: Variants = {
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", stiffness: 300, damping: 24 },
+const variants: Record<string, Variants> = {
+  item: {
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 300, damping: 24 },
+    },
+    init: { opacity: 0, y: 20, transition: { duration: 0.2 } },
   },
-  init: { opacity: 0, y: 20, transition: { duration: 0.2 } },
+  ul: {
+    animate: {
+      clipPath: "inset(0% 0% 0% 0% round 10px)",
+      transition: {
+        type: "spring",
+        bounce: 0,
+        duration: 0.7,
+        delayChildren: 0.5,
+        staggerChildren: 0.1,
+      },
+    },
+    init: {
+      clipPath: "inset(10% 50% 90% 50% round 10px)",
+      transition: {
+        type: "spring",
+        bounce: 0,
+        duration: 0.3,
+      },
+    },
+  },
 };
 
-const Item9Menu = () => {
+const Item9Menu = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <motion.nav animate={isOpen ? "animate" : "init"} className="menu">
@@ -38,27 +60,8 @@ const Item9Menu = () => {
         </motion.div>
       </motion.button>
       <motion.ul
-        className="w-fit bg-slate-200 dark:bg-slate-600 p-4"
-        variants={{
-          animate: {
-            clipPath: "inset(0% 0% 0% 0% round 10px)",
-            transition: {
-              type: "spring",
-              bounce: 0,
-              duration: 0.7,
-              delayChildren: 0.5,
-              staggerChildren: 0.1,
-            },
-          },
-          init: {
-            clipPath: "inset(10% 50% 90% 50% round 10px)",
-            transition: {
-              type: "spring",
-              bounce: 0,
-              duration: 0.3,
-            },
-          },
-        }}
+        className="w-fit bg-slate-100 dark:bg-slate-600 p-4"
+        variants={variants.ul}
         style={{ pointerEvents: isOpen ? "auto" : "none" }}
       >
         <ListItems />
@@ -72,11 +75,11 @@ export default Item9Menu;
 const ListItems = () => {
   return (
     <div>
-      <motion.li variants={itemVariants}>Item 1 </motion.li>
-      <motion.li variants={itemVariants}>Item 2 </motion.li>
-      <motion.li variants={itemVariants}>Item 3 </motion.li>
-      <motion.li variants={itemVariants}>Item 4 </motion.li>
-      <motion.li variants={itemVariants}>Item 5 </motion.li>
+      <motion.li variants={variants.item}>Item 1 </motion.li>
+      <motion.li variants={variants.item}>Item 2 </motion.li>
+      <motion.li variants={variants.item}>Item 3 </motion.li>
+      <motion.li variants={variants.item}>Item 4 </motion.li>
+      <motion.li variants={variants.item}>Item 5 </motion.li>
     </div>
   );
 };
