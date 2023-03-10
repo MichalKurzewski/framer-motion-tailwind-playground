@@ -5,10 +5,6 @@ import Page1 from "./components/pages/Page1";
 import Page2 from "./components/pages/Page2";
 import Title from "./components/navbar/Title";
 import WelcomePage from "./components/pages/WelcomePage";
-import GitRepo from "./components/pages/SidePanel/GitRepoLink";
-import { atom } from "jotai";
-
-import { useEffect } from "react";
 import SidePanel from "./components/pages/SidePanel/SidePanel";
 
 export const links = {
@@ -16,7 +12,6 @@ export const links = {
   First: <Page1 />,
   Second: <Page2 />,
 };
-export const isMenuToggledAtom = atom(false);
 
 const App: React.FC = () => {
   return (

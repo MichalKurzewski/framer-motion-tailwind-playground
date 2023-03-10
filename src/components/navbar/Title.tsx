@@ -2,7 +2,7 @@ import { motion, Variants } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import { useAtom } from "jotai";
-import { isMenuToggledAtom } from "../../App";
+import { isMenuToggledAtom } from "../../JotaiStores/menuToggled";
 
 interface TitleText {
   topWord: string;

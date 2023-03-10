@@ -3,7 +3,7 @@ import Links from "./Links";
 import { motion, Variants } from "framer-motion";
 import { MenuToggle } from "./MenuToggle";
 import { useAtom } from "jotai";
-import { isMenuToggledAtom } from "../../App";
+import { isMenuToggledAtom } from "../../JotaiStores/menuToggled";
 
 const NavBar:React.FC = (): JSX.Element => {
   const [isOpen, setIsOpen] = useAtom(isMenuToggledAtom);
