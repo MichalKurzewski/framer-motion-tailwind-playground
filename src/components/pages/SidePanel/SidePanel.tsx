@@ -59,7 +59,6 @@ const SidePanel = () => {
   };
   return (
     <motion.div
-      drag
       ref={ref}
       className="z-40 px-1 py-4 absolute shadow-xl shadow-zinc-400 dark:shadow-slate-900 origin-left left-0 top-1/2 -translate-y-1/2 txt-color-invert h-[240px] bg-red-600 flex flex-col rounded-r-sm border-1 border-red-900 cursor-pointer"
       variants={variants.sidePanel}
@@ -73,18 +72,22 @@ const SidePanel = () => {
       >
         Links
       </motion.div>
-      <motion.div
-        className="p-2 flex justify-center font-head uppercase text-lg "
-        variants={variants.link}
-      >
-        <Link {...links.home} />
-      </motion.div>
-      <motion.div
-        className="p-2 flex justify-center font-head uppercase text-lg "
-        variants={variants.link}
-      >
-        <Link {...links.github} />
-      </motion.div>
+      <div className="flex justify-center">
+        <div className="w-fit">
+          <motion.div
+            className="py-1 flex justify-center font-head uppercase text-lg "
+            variants={variants.link}
+          >
+            <Link {...links.home} />
+          </motion.div>
+          <motion.div
+            className="p-4 flex justify-center font-head uppercase text-lg "
+            variants={variants.link}
+          >
+            <Link {...links.github} />
+          </motion.div>
+        </div>
+      </div>
     </motion.div>
   );
 };

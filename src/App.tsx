@@ -16,9 +16,8 @@ export const links = {
 const App: React.FC = () => {
   return (
     <main className="bg-color min-h-screen relative min-w-[400px]">
+      <SidePanel />
 
-        <SidePanel />
-     
       <Title
         topWord="Michal's"
         middleWord="Framer Motion"
