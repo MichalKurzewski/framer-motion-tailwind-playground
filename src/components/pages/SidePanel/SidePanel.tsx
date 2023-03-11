@@ -67,7 +67,7 @@ const SidePanel = () => {
 
   useEffect(() => {
     if (isOpen && !isHovering) {
-      const id = setTimeout(() => setIsOpen(false), 5000);
+      const id = setTimeout(() => setIsOpen(false), 4000);
       return () => clearTimeout(id);
     }
   }, [isOpen, isHovering]);
