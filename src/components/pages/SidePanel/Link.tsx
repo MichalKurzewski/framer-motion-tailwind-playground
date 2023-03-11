@@ -39,7 +39,7 @@ const Link: React.FC<ILinkProps> = ({
       >
         <Icon />
       </motion.div>
-      <motion.div variants={variants.label}>{label}</motion.div>
+      <motion.div className="p-3" variants={variants.label}>{label}</motion.div>
     </motion.a>
   );
 };
