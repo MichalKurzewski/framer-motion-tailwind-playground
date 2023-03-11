@@ -1,9 +1,11 @@
 import { motion, Variants } from "framer-motion";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import useOnClickOutside from "../../../hooks/useOnClickOutside";
+import useTimeout from "../../../hooks/useTimeout";
 import Link, { ILinkProps } from "./Link";
 import { ReactComponent as Home } from "../../../assets/svg/home.svg";
 import { ReactComponent as GitHub } from "../../../assets/svg/github.svg";
+
 const variants: Record<string, Variants> = {
   sidePanel: {
     init: {
@@ -40,6 +42,7 @@ const variants: Record<string, Variants> = {
 };
 const SidePanel = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
   const ref = useRef(null);
   const handleClickOutside = () => {
     setIsOpen(false);
@@ -57,14 +60,29 @@ const SidePanel = () => {
       Icon: GitHub,
     },
   };
+  const sidepanelHoverHandler = () => {
+    setIsOpen(true);
+    setIsHovering(true);
+  };
+
+  useEffect(() => {
+    if (isOpen && !isHovering) {
+      const id = setTimeout(() => setIsOpen(false), 5000);
+      return () => clearTimeout(id);
+    }
+  }, [isOpen, isHovering]);
+
   return (
     <motion.div
       ref={ref}
-      className="z-40 px-1 py-4 absolute shadow-xl shadow-zinc-400 dark:shadow-slate-900 origin-left left-0 top-1/2 -translate-y-1/2 txt-color-invert h-[240px] bg-red-600 flex flex-col rounded-r-sm border-1 border-red-900 cursor-pointer"
+      className="z-40 px-1 py-4 absolute backdrop-blur-lg shadow-xl shadow-zinc-400 dark:shadow-slate-900 origin-left left-0 top-1/2 -translate-y-1/2 txt-color-invert h-[240px] bg-red-600 flex flex-col rounded-r-sm border-1 border-red-900 cursor-pointer"
       variants={variants.sidePanel}
       initial="init"
       animate={isOpen ? "animate" : "init"}
-      onMouseEnter={() => setIsOpen(true)}
+      onMouseEnter={sidepanelHoverHandler}
+      onMouseLeave={() => {
+        setIsHovering(false);
+      }}
     >
       <motion.div
         className="p-6 flex justify-center font-head uppercase text-4xl "
