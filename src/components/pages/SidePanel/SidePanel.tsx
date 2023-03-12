@@ -1,4 +1,4 @@
-import { motion, Variants } from "framer-motion";
+import { animate, motion, Variants } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import useOnClickOutside from "../../../hooks/useOnClickOutside";
 import useTimeout from "../../../hooks/useTimeout";
@@ -9,13 +9,22 @@ import { ReactComponent as GitHub } from "../../../assets/svg/github.svg";
 const variants: Record<string, Variants> = {
   sidePanel: {
     init: {
-      backgroundColor: "rgb(220 38 38,0.6)",
+      backgroundColor: "rgb(220 18 38,0.6)",
       width: 60,
     },
     animate: {
       backgroundColor: "rgb(220 38 38,0.8)",
       width: 220,
       cursor: "default",
+    },
+  },
+  border: {
+    init: {
+      opacity: 0,
+      originX: 0,
+    },
+    animate: {
+      opacity: 1,
     },
   },
   text: {
@@ -85,15 +94,16 @@ const SidePanel = () => {
       }}
     >
       <motion.div
-        className="p-6 flex justify-center font-head uppercase text-4xl "
+        className="px-4 py-7 flex justify-center font-head uppercase text-4xl tracking-wide"
         variants={variants.text}
       >
         Links
       </motion.div>
+      <motion.div className="border-2 border-red-600/30" variants={variants.border} />
       <div className="flex justify-center">
         <div className="w-fit">
           <motion.div
-            className="py-1 flex justify-center font-head uppercase text-lg "
+            className="py-1 mt-5 flex justify-center font-head uppercase text-lg "
             variants={variants.link}
           >
             <Link {...links.home} />
