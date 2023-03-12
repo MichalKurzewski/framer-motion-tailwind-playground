@@ -84,7 +84,7 @@ const SidePanel = () => {
   return (
     <motion.div
       ref={ref}
-      className="side-panel"
+      className="side-panel  border-[0.25px] border-red-300/10"
       variants={variants.sidePanel}
       initial="init"
       animate={isOpen ? "animate" : "init"}
@@ -99,7 +99,10 @@ const SidePanel = () => {
       >
         Links
       </motion.div>
-      <motion.div className="border-2 border-red-600/30" variants={variants.border} />
+      <motion.div
+        className="border-[0.25px] border-red-300/10"
+        variants={variants.border}
+      />
       <div className="flex justify-center">
         <div className="w-fit">
           <motion.div
