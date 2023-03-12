@@ -1,10 +1,9 @@
 import { animate, motion, Variants } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
-import useOnClickOutside from "../../../hooks/useOnClickOutside";
-import useTimeout from "../../../hooks/useTimeout";
+import useOnClickOutside from "../../hooks/useOnClickOutside";
 import Link, { ILinkProps } from "./Link";
-import { ReactComponent as Home } from "../../../assets/svg/home.svg";
-import { ReactComponent as GitHub } from "../../../assets/svg/github.svg";
+import { ReactComponent as Home } from "../../assets/svg/home.svg";
+import { ReactComponent as GitHub } from "../../assets/svg/github.svg";
 
 const variants: Record<string, Variants> = {
   sidePanel: {
@@ -14,7 +13,7 @@ const variants: Record<string, Variants> = {
     },
     animate: {
       backgroundColor: "rgb(220 38 38,0.8)",
-      width: 220,
+      width: 160,
       cursor: "default",
     },
   },
@@ -49,6 +48,7 @@ const variants: Record<string, Variants> = {
     },
   },
 };
+
 const SidePanel = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
@@ -84,7 +84,7 @@ const SidePanel = () => {
   return (
     <motion.div
       ref={ref}
-      className="side-panel  border-[0.25px] border-red-300/10"
+      className="side-panel"
       variants={variants.sidePanel}
       initial="init"
       animate={isOpen ? "animate" : "init"}
@@ -100,7 +100,7 @@ const SidePanel = () => {
         Links
       </motion.div>
       <motion.div
-        className="border-[0.25px] border-red-300/10"
+        className="border-[0.25px] border-red-300/20"
         variants={variants.border}
       />
       <div className="flex justify-center">

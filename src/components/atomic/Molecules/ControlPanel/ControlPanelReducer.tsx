@@ -1,4 +1,8 @@
-import { State, Action, ControlConfig } from "../Item8ControlledReducer";
+import {
+  State,
+  Action,
+  ControlConfig,
+} from "../Item8ControlledReducer";
 
 interface Props {
   state: State;
@@ -7,7 +11,6 @@ interface Props {
 }
 
 const ControlPanelReducer = ({ state, dispatch, controlConfigs }: Props) => {
-
   return (
     <div className="z-10">
       {Object.keys(state).map((key) => (

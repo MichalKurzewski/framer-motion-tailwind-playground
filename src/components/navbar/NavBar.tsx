@@ -1,4 +1,4 @@
-import Switcher from "../atomic/Switcher";
+import Switcher from "../atomic/Molecules/Switcher";
 import Links from "./Links";
 import { motion, Variants } from "framer-motion";
 import { MenuToggle } from "./MenuToggle";

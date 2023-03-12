@@ -4,11 +4,11 @@ import { motion, Variants } from "framer-motion";
 const variants: Record<string, Variants> = {
   icon: {
     init: { x: 0, scale: 1.3 },
-    animate: { x: -75, scale: 1 },
+    animate: { x: -58, scale: 1 },
   },
   label: {
     init: { display: "none", opacity: 0, x: 0 },
-    animate: { display: "block", opacity: 1, x: 20 },
+    animate: { display: "block", opacity: 1, x: 18 },
   },
 };
 
@@ -39,7 +39,7 @@ const Link: React.FC<ILinkProps> = ({
       >
         <Icon />
       </motion.div>
-      <motion.div className="p-3" variants={variants.label}>
+      <motion.div className="p-3 text-sm" variants={variants.label}>
         {label}
       </motion.div>
     </motion.a>
