@@ -10,6 +10,10 @@
 .txt-color-invert {
   @apply text-slate-50 dark:text-slate-800;
 }
+.side-panel {
+  @apply z-[21] px-1 py-4 fixed shadow-xl transition-transform shadow-zinc-400 dark:shadow-slate-900
+   origin-left left-0 bottom-0 md:top-1/2 md:-translate-y-1/2 txt-color-invert h-[240px] backdrop-blur-sm flex flex-col rounded-r-sm cursor-pointer;
+}
 .stroke-color {
   @apply stroke-slate-600 dark:stroke-slate-200 stroke-2;
 }
@@ -18,7 +22,7 @@
 }
 
 .bg-color {
-  @apply  bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] dark:from-slate-700 dark:via-slate-800 dark:to-slate-900 from-zinc-50 via-zinc-200 to-zinc-300 txt-color;
+  @apply bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] dark:from-slate-700 dark:via-slate-800 dark:to-slate-900 from-zinc-50 via-zinc-200 to-zinc-300 txt-color;
 }
 
 .btn {
@@ -26,7 +30,7 @@
 }
 
 .div-item {
-  @apply w-32 h-32 bg-slate-400 dark:bg-slate-500 rounded-md;
+  @apply w-32 h-32 bg-slate-400 dark:bg-slate-500 rounded-md backdrop-blur-xl;
 }
 
 .absolute-center {

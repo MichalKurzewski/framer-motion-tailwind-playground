@@ -9,12 +9,12 @@ import { ReactComponent as GitHub } from "../../../assets/svg/github.svg";
 const variants: Record<string, Variants> = {
   sidePanel: {
     init: {
-      opacity: 0.4,
+      backgroundColor: "rgb(220 38 38,0.6)",
       width: 60,
     },
     animate: {
+      backgroundColor: "rgb(220 38 38,0.8)",
       width: 220,
-      opacity: 0.8,
       cursor: "default",
     },
   },
@@ -75,7 +75,7 @@ const SidePanel = () => {
   return (
     <motion.div
       ref={ref}
-      className="z-40 px-1 py-4 absolute backdrop-blur-lg shadow-xl shadow-zinc-400 dark:shadow-slate-900 origin-left left-0 top-1/2 -translate-y-1/2 txt-color-invert h-[240px] bg-red-600 flex flex-col rounded-r-sm border-1 border-red-900 cursor-pointer"
+      className="side-panel"
       variants={variants.sidePanel}
       initial="init"
       animate={isOpen ? "animate" : "init"}
