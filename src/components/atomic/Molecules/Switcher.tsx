@@ -50,7 +50,7 @@ const Switcher: React.FC = (): JSX.Element => {
         <Rocket className="rotate-45 dark:fill-slate-200 hidden sm:block " />
       </motion.div>
       {colorTheme === "light" && (
-        <Moon id="moon-icon" className=" fill-slate-200 w-8 h-8 m-2 stroke-0" />
+        <Moon id="moon-icon" className=" fill-slate-200 w-8 h-8 m-2 " />
       )}
       {colorTheme === "dark" && (
         <Sun id="sun-icon" className=" fill-slate-800 w-8 h-8 m-2" />
