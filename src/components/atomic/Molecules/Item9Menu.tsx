@@ -32,11 +32,12 @@ const variants: Record<string, Variants> = {
     },
   },
 };
+const initialItems = ["Item 1", "Item 2", "Item 3", "Item 4"];
 
 const Item9Menu = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <motion.nav animate={isOpen ? "animate" : "init"} className="menu">
+    <motion.nav animate={isOpen ? "animate" : "init"} className="div-item p-2">
       <motion.button
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
@@ -60,7 +61,7 @@ const Item9Menu = (): JSX.Element => {
         </motion.div>
       </motion.button>
       <motion.ul
-        className="w-fit bg-slate-100 dark:bg-slate-600 p-4"
+        className="w-full bg-slate-100/10 dark:bg-slate-600/10 backdrop-blur-md p-4 border-[0.5px] rounded-xl shadow-md"
         variants={variants.ul}
         style={{ pointerEvents: isOpen ? "auto" : "none" }}
       >
@@ -79,7 +80,6 @@ const ListItems = () => {
       <motion.li variants={variants.item}>Item 2 </motion.li>
       <motion.li variants={variants.item}>Item 3 </motion.li>
       <motion.li variants={variants.item}>Item 4 </motion.li>
-      <motion.li variants={variants.item}>Item 5 </motion.li>
     </div>
   );
 };

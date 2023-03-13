@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Reorder, useMotionValue } from "framer-motion";
 import { useRaisedShadow } from "../../../hooks/useRaisedShadow";
 
+const initialItems = ["Item 1", "Item 2", "Item 3", "Item 4"];
+
 const Item10Reorder = () => {
-  const initialItems = ["Item 1", "Item 2", "Item 3", "Item 4"];
   const [items, setItems] = useState(initialItems);
   return (
     <div className="relative div-item ">
@@ -32,8 +33,13 @@ const Item = ({ item }: Props) => {
   const boxShadow = useRaisedShadow(y);
 
   return (
-    <Reorder.Item value={item} id={item} style={{ boxShadow, y }} className="p-0.5 rounded-sm">
-      <li>{item}</li>
+    <Reorder.Item
+      value={item}
+      id={item}
+      style={{ boxShadow, y }}
+      className="p-0.5 rounded-sm"
+    >
+      <div>{item}</div>
     </Reorder.Item>
   );
 };
