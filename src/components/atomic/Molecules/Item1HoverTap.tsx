@@ -1,17 +1,16 @@
 import { motion } from "framer-motion";
+import Item from "./Item";
 const Item1HoverTap = () => {
+  
+  const label = "Hover Tap";
   return (
-    <div>
+    <Item label={label}>
       <motion.div
-        className="relative div-item cursor-pointer"
+        className="div-item cursor-pointer"
         whileHover={{ scale: 1.2 }}
         whileTap={{ scale: 1.1 }}
-        // drag="x"
-        // dragConstraints={{ left: -100, right: 100 }}
-      >
-        <div className="absolute-center txt-color-invert">Hover Tap</div>
-      </motion.div>
-    </div>
+      />
+    </Item>
   );
 };
 

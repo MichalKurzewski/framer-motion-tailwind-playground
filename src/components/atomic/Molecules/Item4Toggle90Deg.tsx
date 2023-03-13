@@ -1,26 +1,24 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useState } from "react";
+import Item from "./Item";
 
-const Item4Toggle90Deg = () => {
-  const [isToggled, setIsToggled] = useState(false);
+const Item4Toggle90Deg: React.FC = (): JSX.Element => {
+  const [isToggled, setIsToggled] = useState<boolean>(false);
 
-  const itemVariants = {
-    toggle: { rotate: isToggled ? 0 : 90 },
+  const variants: Record<string, Variants> = {
+    item: {
+      toggle: { rotate: isToggled ? 0 : 90 },
+    },
   };
 
   return (
-    <motion.div
-      className="cursor-pointer relative txt-color-invert"
-      onClick={() => setIsToggled(!isToggled)}
-   
-    >
+    <Item label="Toggle 90deg" onClick={() => setIsToggled(!isToggled)}>
       <motion.div
         className="div-item border-t-4 border-t-slate-600 dark:border-t-slate-400"
-        variants={itemVariants}
+        variants={variants.item}
         animate="toggle"
-      ></motion.div>
-      <div className="absolute-center ">Toggle 90deg</div>
-    </motion.div>
+      />
+    </Item>
   );
 };
 

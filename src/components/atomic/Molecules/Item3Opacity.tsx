@@ -1,17 +1,26 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
+import Item from "./Item";
+
+const variants: Record<string, Variants> = {
+  opacity: {
+    initial: { opacity: 1 },
+    animate: {
+      opacity: 0,
+      transition: { duration: 1.5, repeat: Infinity, repeatType: "mirror" },
+    },
+  },
+};
 const Item3Opacity = () => {
   return (
-    <motion.div
-      className="relative div-item"
-      whileHover={{ opacity: 1 }}
-      initial={{opacity:1}}
-      animate={{
-        opacity: 0,
-        transition: { duration: 1.5, repeat: Infinity, repeatType: "mirror" },
-      }}
-    >
-      <div className="absolute-center txt-color-invert">Opacity</div>
-    </motion.div>
+    <Item label="Opacity">
+      <motion.div
+        variants={variants.opacity}
+        className="div-item"
+        whileHover={{ opacity: 1 }}
+        initial="initial"
+        animate="animate"
+      />
+    </Item>
   );
 };
 

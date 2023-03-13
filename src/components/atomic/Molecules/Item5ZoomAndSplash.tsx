@@ -1,4 +1,5 @@
 import { motion, Variants } from "framer-motion";
+import Item from "./Item";
 
 const Item5ZoomAndSplash = () => {
   const itemVariants: Variants = {
@@ -15,14 +16,13 @@ const Item5ZoomAndSplash = () => {
   };
 
   return (
-    <motion.div className="relative txt-color-invert">
+    <Item label="Zoom Splash">
       <motion.div
         className="div-item"
         variants={itemVariants}
         animate="animate"
-      ></motion.div>
-      <div className="absolute-center ">Zoom Splash</div>
-    </motion.div>
+      />
+    </Item>
   );
 };
 

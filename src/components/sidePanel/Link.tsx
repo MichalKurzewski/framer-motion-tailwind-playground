@@ -4,11 +4,16 @@ import { motion, Variants } from "framer-motion";
 const variants: Record<string, Variants> = {
   icon: {
     init: { x: 0, scale: 1.3 },
-    animate: { x: -58, scale: 1 },
+    animate: { x: -58, scale: 1, transition: { delay: 0.5 } },
   },
   label: {
     init: { display: "none", opacity: 0, x: 0 },
-    animate: { display: "block", opacity: 1, x: 18 },
+    animate: {
+      display: "block",
+      opacity: 1,
+      x: 18,
+      transition: { delay: 0.5 },
+    },
   },
 };
 

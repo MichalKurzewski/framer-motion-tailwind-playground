@@ -1,6 +1,7 @@
-import { motion } from "framer-motion";
-import ControlPanelReducer from "./ControlPanel/ControlPanelReducer";
+import { motion, Variants } from "framer-motion";
+import ControlPanelReducer from "./ItemControlPanel/ControlPanelReducer";
 import { useReducer } from "react";
+import Item from "./Item";
 
 export interface State {
   x: number;
@@ -59,23 +60,31 @@ const initialState = {
 
 const Item8ControlledReducer = (): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const variants: Record<string, Variants> = {
+    transformation: {
+      animate: {
+        x: state.x,
+        y: state.y,
+        scale: state.scale,
+        rotate: state.rotation,
+        opacity: state.opacity,
+      },
+    },
+  };
+
   return (
     <div className="flex justify-between gap-2 ">
-      <div className="border border-slate-600 dark:border-slate-400 rounded-md relative">
+      <Item
+        additionalStyling="border border-slate-600 dark:border-slate-400 rounded-md relative"
+        label="Controlled Element Reducer"
+      >
         <motion.div
-          animate={{
-            x: state.x,
-            y: state.y,
-            scale: state.scale,
-            rotate: state.rotation,
-            opacity: state.opacity,
-          }}
           className="div-item"
+          variants={variants.transformation}
+          animate="animate"
         ></motion.div>
-        <div className="absolute-center txt-color-invert">
-          Controlled Element Reducer
-        </div>
-      </div>
+      </Item>
 
       <ControlPanelReducer
         state={state}

@@ -1,4 +1,5 @@
 import { motion,  Variants } from "framer-motion";
+import Item from "./Item";
 
 const motionVariants: Variants = {
   animate: {
@@ -12,16 +13,13 @@ const motionVariants: Variants = {
 };
 const Item2ShapeShift = () => {
   return (
-    <motion.div className="relative" >
-      <div className="absolute-center z-10 txt-color-invert">
-        Frames Shapeshift
-      </div>
+    <Item label="Frames Shapeshift">
       <motion.div
         className="div-item"
         variants={motionVariants}
         animate="animate"
       />
-    </motion.div>
+    </Item>
   );
 };
 

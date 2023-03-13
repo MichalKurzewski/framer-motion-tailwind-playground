@@ -1,14 +1,25 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import ControlPanel from "./ControlPanel/ControlPanel";
+import { motion, Variants } from "framer-motion";
+import ControlPanel from "./ItemControlPanel/ControlPanel";
+import Item from "./Item";
 
 const Item7Controlled = (): JSX.Element => {
-  //try useReducer
+
   const [x, setX] = useState<number>(0);
   const [y, setY] = useState<number>(0);
   const [scale, setScale] = useState<number>(1);
   const [rotation, setRotation] = useState<number>(0);
 
+  const variants: Record<string, Variants> = {
+    transformation: {
+      animate: {
+        x: x,
+        y: y,
+        scale: scale,
+        rotate: rotation,
+      },
+    },
+  };
   const data = [
     {
       name: "X",
@@ -43,18 +54,19 @@ const Item7Controlled = (): JSX.Element => {
       step: 1,
     },
   ];
-  return (
-    <div className="flex justify-between gap-2 ">
-      <div className="border border-slate-600 dark:border-slate-400 rounded-md relative">
-        <motion.div
-          animate={{ x: x, y: y, scale: scale, rotate: rotation }}
-          className="div-item"
-        ></motion.div>
-        <div className="absolute-center txt-color-invert">
-          Controlled Element
-        </div>
-      </div>
 
+  return (
+    <div className="flex justify-between gap-2">
+      <Item
+        additionalStyling="border border-slate-600 dark:border-slate-400 rounded-md"
+        label="Controlled Element"
+      >
+        <motion.div
+          variants={variants.transformation}
+          animate="animate"
+          className="div-item"
+        />
+      </Item>
       <ControlPanel data={data} />
     </div>
   );
