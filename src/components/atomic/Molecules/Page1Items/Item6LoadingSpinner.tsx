@@ -1,6 +1,6 @@
 import { motion, Variants } from "framer-motion";
-import { ReactComponent as Rocket } from "../../../assets/svg/rocket3.svg";
-import { ReactComponent as Moon } from "../../../assets/svg/moon-full.svg";
+import { ReactComponent as Rocket } from "../../../../assets/svg/rocket3.svg";
+import { ReactComponent as Moon } from "../../../../assets/svg/moon-full.svg";
 
 const variants: Record<string, Variants> = {
   rocket1: {

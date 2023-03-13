@@ -1,8 +1,8 @@
 import { motion, Variants } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import useMediaQuery from "../../hooks/useMediaQuery";
+import useMediaQuery from "../../../../hooks/useMediaQuery";
 import { useAtom } from "jotai";
-import { isMenuToggledAtom } from "../../JotaiStores/menuToggled";
+import { isMenuToggledAtom } from "../../../../JotaiStores/menuToggled";
 
 interface TitleText {
   topWord: string;
@@ -16,16 +16,6 @@ const Title = ({ topWord, middleWord, bottomWord }: TitleText) => {
   const isMedium = useMediaQuery("(min-width: 640px)");
   const [isOpen] = useAtom(isMenuToggledAtom);
 
-  const size = isMedium
-    ? isLarge
-      ? isXLarge
-        ? "XLarge"
-        : "Large"
-      : "Medium"
-    : "Small";
-
-  const here = useLocation();
-  const isHome = here.pathname === "/Home" || here.pathname === "/";
   const variants: Record<string, Variants> = {
     parent: {
       init: {
@@ -87,48 +77,57 @@ const Title = ({ topWord, middleWord, bottomWord }: TitleText) => {
       },
     },
   };
+  const size = isMedium
+    ? isLarge
+      ? isXLarge
+        ? "XLarge"
+        : "Large"
+      : "Medium"
+    : "Small";
+
+  const here = useLocation();
+  const isHome = here.pathname === "/Home" || here.pathname === "/";
+
   return (
-    <>
+    <motion.div
+      className={`absolute top-0 w-full uppercase h-24 font-head txt-color text-xl sm:text-2xl lg:text-2xl xl:text-4xl transition-all tracking-wide lg:flex ${
+        isHome ? "flex " : "hidden "
+      } ${isHome && isOpen && size === "Small" ? "mt-48" : ""}`}
+    >
       <motion.div
-        className={`absolute w-full uppercase h-24 font-head txt-color text-xl sm:text-2xl lg:text-2xl xl:text-4xl transition-all tracking-wide lg:flex ${
-          isHome ? "flex " : "hidden "
-        } ${isHome && isOpen && size === "Small" ? "mt-48" : ""}`}
+        layout
+        variants={variants.parent}
+        initial="init"
+        animate={isHome ? "animate" : "init"}
+        className="flex items-center"
       >
+        <motion.div className=" m-1.5 z-20" variants={variants.firstDiv}>
+          {topWord}
+        </motion.div>
         <motion.div
-          layout
-          variants={variants.parent}
-          initial="init"
-          animate={isHome ? "animate" : "init"}
-          className="flex items-center"
+          className={`${
+            isHome ? "-mt-14 xl:mt-0" : ""
+          } z-20 m-1.5 whitespace-nowrap flex justify-between w-full`}
+          variants={variants.secondDiv}
         >
-          <motion.div className=" m-1.5 z-20" variants={variants.firstDiv}>
-            {topWord}
-          </motion.div>
-          <motion.div
-            className={`${
-              isHome ? "-mt-14 xl:mt-0" : ""
-            } z-20 m-1.5 whitespace-nowrap flex justify-between w-full`}
-            variants={variants.secondDiv}
-          >
-            {[...middleWord].map((letter: string, index: number) => (
-              <motion.div
-                key={index}
-                variants={variants.secondDivLetters}
-                className="whitespace-pre"
-              >
-                {letter}
-              </motion.div>
-            ))}
-          </motion.div>
-          <motion.div
-            className={`${isHome ? "-mt-32 xl:mt-0" : ""} m-1.5 z-20`}
-            variants={variants.thirdDiv}
-          >
-            {bottomWord}
-          </motion.div>
+          {[...middleWord].map((letter: string, index: number) => (
+            <motion.div
+              key={index}
+              variants={variants.secondDivLetters}
+              className="whitespace-pre"
+            >
+              {letter}
+            </motion.div>
+          ))}
+        </motion.div>
+        <motion.div
+          className={`${isHome ? "-mt-32 xl:mt-0" : ""} m-1.5 z-20`}
+          variants={variants.thirdDiv}
+        >
+          {bottomWord}
         </motion.div>
       </motion.div>
-    </>
+    </motion.div>
   );
 };
 

@@ -10,7 +10,7 @@ const Image = ({ src, fallback, type = "image/webp", alt }: IImage): JSX.Element
   return (
     <picture>
       <source srcSet={src} type={type} />
-      <img src={fallback} alt={alt} />
+      {/* <img src={fallback} alt={alt} /> */}
     </picture>
   );
 };

@@ -1,11 +1,11 @@
-import Item1HoverTap from "../../atomic/Molecules/Item1HoverTap";
-import Item2ShapeShift from "../../atomic/Molecules/Item2Shapeshift";
-import Item3Opacity from "../../atomic/Molecules/Item3Opacity";
-import Item4Toggle90Deg from "../../atomic/Molecules/Item4Toggle90Deg";
-import Item5ZoomAndSplash from "../../atomic/Molecules/Item5ZoomAndSplash";
-import Item6LoadingSpinner from "../../atomic/Molecules/Item6LoadingSpinner";
-import Item7Controlled from "../../atomic/Molecules/Item7Controlled";
-import Item8ControlledReducer from "../../atomic/Molecules/Item8ControlledReducer";
+import Item1HoverTap from "../../atomic/Molecules/Page1Items/Item1HoverTap";
+import Item2ShapeShift from "../../atomic/Molecules/Page1Items/Item2Shapeshift";
+import Item3Opacity from "../../atomic/Molecules/Page1Items/Item3Opacity";
+import Item4Toggle90Deg from "../../atomic/Molecules/Page1Items/Item4Toggle90Deg";
+import Item5ZoomAndSplash from "../../atomic/Molecules/Page1Items/Item5ZoomAndSplash";
+import Item6LoadingSpinner from "../../atomic/Molecules/Page1Items/Item6LoadingSpinner";
+import Item7Controlled from "../../atomic/Molecules/Page1Items/Item7Controlled";
+import Item8ControlledReducer from "../../atomic/Molecules/Page1Items/Item8ControlledReducer";
 import { LayoutGroup, motion } from "framer-motion";
 
 const Page1: React.FC = (): JSX.Element => {

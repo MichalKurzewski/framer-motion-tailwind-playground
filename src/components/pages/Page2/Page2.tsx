@@ -1,6 +1,6 @@
-import Item9Menu from "../../atomic/Molecules/Item9Menu";
+import Item9Menu from "../../atomic/Molecules/Page2Items/Item9Menu";
 import { motion } from "framer-motion";
-import Item10Reorder from "../../atomic/Molecules/Item10Reorder";
+import Item10Reorder from "../../atomic/Molecules/Page2Items/Item10Reorder";
 
 const Page2: React.FC = (): JSX.Element => {
   return (

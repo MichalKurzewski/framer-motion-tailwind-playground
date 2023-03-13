@@ -1,9 +1,9 @@
-import { animate, motion, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
-import useOnClickOutside from "../../hooks/useOnClickOutside";
+import useOnClickOutside from "../../../../hooks/useOnClickOutside";
 import Link, { ILinkProps } from "./Link";
-import { ReactComponent as Home } from "../../assets/svg/home.svg";
-import { ReactComponent as GitHub } from "../../assets/svg/github.svg";
+import { ReactComponent as Home } from "../../../../assets/svg/home.svg";
+import { ReactComponent as GitHub } from "../../../../assets/svg/github.svg";
 
 const variants: Record<string, Variants> = {
   sidePanel: {

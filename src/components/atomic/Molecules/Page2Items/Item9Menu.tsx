@@ -32,6 +32,7 @@ const variants: Record<string, Variants> = {
     },
   },
 };
+//todo instead hardcoded divs
 const initialItems = ["Item 1", "Item 2", "Item 3", "Item 4"];
 
 const Item9Menu = (): JSX.Element => {

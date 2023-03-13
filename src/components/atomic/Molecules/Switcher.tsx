@@ -6,6 +6,7 @@ import { motion, Variants } from "framer-motion";
 
 const Switcher: React.FC = (): JSX.Element => {
   const { colorTheme, setTheme } = useDarkMode();
+  
   const variants: Record<string, Variants> = {
     theme: {
       animate: {

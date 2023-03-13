@@ -1,7 +1,7 @@
 import { motion, Variants } from "framer-motion";
 import ControlPanelReducer from "./ItemControlPanel/ControlPanelReducer";
 import { useReducer } from "react";
-import Item from "./Item";
+import Item from "../Item";
 
 export interface State {
   x: number;

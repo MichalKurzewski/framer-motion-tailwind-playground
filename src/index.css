@@ -4,6 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg-color {
+  @apply bg-cover bg-fixed  bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] dark:from-slate-700 dark:via-slate-800 dark:to-slate-900 from-zinc-50 via-zinc-200 to-zinc-300 txt-color;
+}
+
+@layer base {
+  body {
+    @apply bg-color;
+  }
+}
+
 .txt-color {
   @apply text-slate-600 dark:text-slate-200;
 }
@@ -19,10 +29,6 @@
 }
 .border-color {
   @apply border-slate-500 dark:border-slate-200 border-2 rounded-full;
-}
-
-.bg-color {
-  @apply bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] dark:from-slate-700 dark:via-slate-800 dark:to-slate-900 from-zinc-50 via-zinc-200 to-zinc-300 txt-color;
 }
 
 .btn {

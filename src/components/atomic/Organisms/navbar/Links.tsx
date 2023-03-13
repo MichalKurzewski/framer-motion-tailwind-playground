@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { links } from "../../App";
+import { links } from "../../../../App";
 import { motion, Variants } from "framer-motion";
 
 const Links = ({ variants = {} }: { variants: Variants }) => {
@@ -7,7 +7,7 @@ const Links = ({ variants = {} }: { variants: Variants }) => {
     <>
       {Object.keys(links).map((link, index) => (
         <motion.div
-          className="z-20"
+          className="z-40"
           key={index}
           variants={variants}
           whileTap={{ scale: 1 }}

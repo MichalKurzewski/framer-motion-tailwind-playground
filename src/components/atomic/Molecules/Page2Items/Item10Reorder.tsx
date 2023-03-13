@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Reorder, useMotionValue } from "framer-motion";
-import { useRaisedShadow } from "../../../hooks/useRaisedShadow";
-import Item from "./Item";
+import { useRaisedShadow } from "../../../../hooks/useRaisedShadow";
+import Item from "../Item";
 
 const initialItems = ["Item 1", "Item 2", "Item 3", "Item 4"];
 

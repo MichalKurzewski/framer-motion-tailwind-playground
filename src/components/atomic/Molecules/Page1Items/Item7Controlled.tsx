@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import ControlPanel from "./ItemControlPanel/ControlPanel";
-import Item from "./Item";
+import Item from "../Item";
 
 const Item7Controlled = (): JSX.Element => {
 

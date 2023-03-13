@@ -1,5 +1,5 @@
 import { motion, Variants } from "framer-motion";
-import Item from "./Item";
+import Item from "../Item";
 
 const Item5ZoomAndSplash = () => {
   const itemVariants: Variants = {
