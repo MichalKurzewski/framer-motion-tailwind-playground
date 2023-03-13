@@ -12,7 +12,7 @@ const Item4Toggle90Deg = () => {
     <motion.div
       className="cursor-pointer relative txt-color-invert"
       onClick={() => setIsToggled(!isToggled)}
-      drag
+   
     >
       <motion.div
         className="div-item border-t-4 border-t-slate-600 dark:border-t-slate-400"

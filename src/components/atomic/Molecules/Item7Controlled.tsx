@@ -47,7 +47,6 @@ const Item7Controlled = (): JSX.Element => {
     <div className="flex justify-between gap-2 ">
       <div className="border border-slate-600 dark:border-slate-400 rounded-md relative">
         <motion.div
-          drag
           animate={{ x: x, y: y, scale: scale, rotate: rotation }}
           className="div-item"
         ></motion.div>

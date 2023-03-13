@@ -63,7 +63,6 @@ const Item8ControlledReducer = (): JSX.Element => {
     <div className="flex justify-between gap-2 ">
       <div className="border border-slate-600 dark:border-slate-400 rounded-md relative">
         <motion.div
-          drag
           animate={{
             x: state.x,
             y: state.y,

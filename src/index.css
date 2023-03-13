@@ -30,7 +30,7 @@
 }
 
 .div-item {
-  @apply w-32 h-32 bg-slate-400 dark:bg-slate-500 rounded-md backdrop-blur-xl;
+  @apply w-32 h-32 bg-slate-400 dark:bg-slate-500 rounded-md;
 }
 
 .absolute-center {

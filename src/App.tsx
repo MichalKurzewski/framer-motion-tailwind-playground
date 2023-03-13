@@ -6,7 +6,7 @@ import Page2 from "./components/pages/Page2/Page2";
 import Title from "./components/navbar/Title";
 import HomePage from "./components/pages/HomePage/HomePage";
 import SidePanel from "./components/sidePanel/SidePanel";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, LayoutGroup } from "framer-motion";
 import { useLocation } from "react-router-dom";
 export const links = {
   Home: <HomePage />,
@@ -27,18 +27,20 @@ const App: React.FC = () => {
       />
       <NavBar />
       <div className="App mx-auto px-1 py-6">
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            {Object.keys(links).map((link, index) => (
-              <Route
-                key={index}
-                path={"/" + link}
-                element={Object.values(links)[index]}
-              />
-            ))}
-            <Route key="welcome" path="/" element={<HomePage />}></Route>
-          </Routes>
-        </AnimatePresence>
+        <LayoutGroup>
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              {Object.keys(links).map((link, index) => (
+                <Route
+                  key={index}
+                  path={"/" + link}
+                  element={Object.values(links)[index]}
+                />
+              ))}
+              <Route key="welcome" path="/" element={<HomePage />}></Route>
+            </Routes>
+          </AnimatePresence>
+        </LayoutGroup>
       </div>
     </main>
   );

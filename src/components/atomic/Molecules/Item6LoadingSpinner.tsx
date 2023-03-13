@@ -2,7 +2,7 @@ import { motion, Variants } from "framer-motion";
 import { ReactComponent as Rocket } from "../../../assets/svg/rocket3.svg";
 import { ReactComponent as Moon } from "../../../assets/svg/moon-full.svg";
 
-const variants = {
+const variants: Record<string, Variants> = {
   rocket1: {
     init: {
       originY: 2.5,
@@ -35,22 +35,22 @@ const variants = {
       },
     },
   },
-};
-const loading: Variants = {
-  animate: {
-    rotate: 360,
-    transition: {
-      duration: 8,
-      repeat: Infinity,
-      ease: "linear",
+  loading: {
+    animate: {
+      rotate: 360,
+      transition: {
+        duration: 8,
+        repeat: Infinity,
+        ease: "linear",
+      },
     },
   },
 };
+
 const Item6LoadingSpinner = () => {
   return (
     <motion.div
-      className="relative"
-      drag
+      className="relative"      
       whileHover={{ opacity: 0.5 }}
       initial={{ scale: 1 }}
     >
@@ -65,7 +65,7 @@ const Item6LoadingSpinner = () => {
     a 40,40 0 0,1 -80,0
   "
           />
-          <motion.text variants={loading}>
+          <motion.text variants={variants.loading}>
             <textPath
               xlinkHref="#text-path"
               className="font-head dark:fill-slate-200 text-2xl"

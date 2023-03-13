@@ -1,5 +1,6 @@
 import Item9Menu from "../../atomic/Molecules/Item9Menu";
 import { motion } from "framer-motion";
+import Item10Reorder from "../../atomic/Molecules/Item10Reorder";
 
 const Page2: React.FC = (): JSX.Element => {
   return (
@@ -10,6 +11,7 @@ const Page2: React.FC = (): JSX.Element => {
       exit={{ opacity: 0, x: -50, transition: { duration: 0.5 } }}
     >
       <Item9Menu />
+      <Item10Reorder />
     </motion.div>
   );
 };

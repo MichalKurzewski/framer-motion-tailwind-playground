@@ -6,8 +6,8 @@ const Item1HoverTap = () => {
         className="relative div-item cursor-pointer"
         whileHover={{ scale: 1.2 }}
         whileTap={{ scale: 1.1 }}
-        drag="x"
-        dragConstraints={{ left: -100, right: 100 }}
+        // drag="x"
+        // dragConstraints={{ left: -100, right: 100 }}
       >
         <div className="absolute-center txt-color-invert">Hover Tap</div>
       </motion.div>

@@ -3,7 +3,6 @@ const Item3Opacity = () => {
   return (
     <motion.div
       className="relative div-item"
-      drag
       whileHover={{ opacity: 1 }}
       initial={{opacity:1}}
       animate={{
