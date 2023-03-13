@@ -12,7 +12,7 @@
 }
 .side-panel {
   @apply z-50 fixed shadow-xl transition-transform shadow-zinc-400 dark:shadow-slate-900
-   origin-left left-0 bottom-0  md:-translate-y-1/2 md:top-[460px] txt-color-invert h-[240px] backdrop-blur-sm flex flex-col rounded-r-sm;
+   origin-left left-0 bottom-0  md:-translate-y-1/2 md:top-1/2 txt-color-invert h-[240px] backdrop-blur-sm flex flex-col rounded-r-sm;
 }
 .stroke-color {
   @apply stroke-slate-600 dark:stroke-slate-200 stroke-2;
