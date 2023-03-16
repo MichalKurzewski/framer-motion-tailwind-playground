@@ -2,6 +2,9 @@
 
 Welcome to this feature-rich web application built with React, TypeScript, Tailwind CSS, Framer Motion, and Vitest. This ready-to-use project provides a solid foundation for you to customize and expand upon to suit your specific needs.
 
+The gh-pages for this repository:
+
+https://michalkurzewski.github.io/framer-motion-tailwind-playground/
 ## 📚 Table of Contents
 
 - [Features](#features)
