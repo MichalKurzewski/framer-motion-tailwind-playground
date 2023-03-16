@@ -78,14 +78,8 @@ const Item8ControlledReducer = (): JSX.Element => {
       <Item
         additionalStyling="border border-slate-600 dark:border-slate-400 rounded-md relative"
         label="Controlled Element Reducer"
-      >
-        <motion.div
-          className="div-item"
-          variants={variants.transformation}
-          animate="animate"
-        ></motion.div>
-      </Item>
-
+        variants={variants.transformation}
+      />
       <ControlPanelReducer
         state={state}
         dispatch={dispatch}

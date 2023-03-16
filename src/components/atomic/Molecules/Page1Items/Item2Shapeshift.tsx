@@ -1,4 +1,4 @@
-import { motion,  Variants } from "framer-motion";
+import { Variants } from "framer-motion";
 import Item from "../Item";
 
 const motionVariants: Variants = {
@@ -13,13 +13,7 @@ const motionVariants: Variants = {
 };
 const Item2ShapeShift = () => {
   return (
-    <Item label="Frames Shapeshift">
-      <motion.div
-        className="div-item"
-        variants={motionVariants}
-        animate="animate"
-      />
-    </Item>
+    <Item variants={motionVariants} label="Frames Shapeshift"/>
   );
 };
 

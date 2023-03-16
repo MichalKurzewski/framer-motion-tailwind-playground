@@ -4,7 +4,6 @@ import ControlPanel from "./ItemControlPanel/ControlPanel";
 import Item from "../Item";
 
 const Item7Controlled = (): JSX.Element => {
-
   const [x, setX] = useState<number>(0);
   const [y, setY] = useState<number>(0);
   const [scale, setScale] = useState<number>(1);
@@ -60,13 +59,8 @@ const Item7Controlled = (): JSX.Element => {
       <Item
         additionalStyling="border border-slate-600 dark:border-slate-400 rounded-md"
         label="Controlled Element"
-      >
-        <motion.div
-          variants={variants.transformation}
-          animate="animate"
-          className="div-item"
-        />
-      </Item>
+        variants={variants.transformation}
+      />
       <ControlPanel data={data} />
     </div>
   );

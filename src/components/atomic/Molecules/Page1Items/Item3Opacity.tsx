@@ -12,15 +12,11 @@ const variants: Record<string, Variants> = {
 };
 const Item3Opacity = () => {
   return (
-    <Item label="Opacity">
-      <motion.div
-        variants={variants.opacity}
-        className="div-item"
-        whileHover={{ opacity: 1 }}
-        initial="initial"
-        animate="animate"
-      />
-    </Item>
+    <Item
+      variants={variants.opacity}
+      label="Opacity"
+      whileHover={{ opacity: 1 }}
+    />
   );
 };
 

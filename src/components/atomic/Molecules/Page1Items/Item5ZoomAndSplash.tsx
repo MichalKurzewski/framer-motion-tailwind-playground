@@ -16,13 +16,7 @@ const Item5ZoomAndSplash = () => {
   };
 
   return (
-    <Item label="Zoom Splash">
-      <motion.div
-        className="div-item"
-        variants={itemVariants}
-        animate="animate"
-      />
-    </Item>
+    <Item label="Zoom Splash" variants={itemVariants}/>
   );
 };
 
