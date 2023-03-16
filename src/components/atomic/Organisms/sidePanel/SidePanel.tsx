@@ -4,6 +4,7 @@ import useOnClickOutside from "../../../../hooks/useOnClickOutside";
 import Link, { ILinkProps } from "./Link";
 import { ReactComponent as Home } from "../../../../assets/svg/home.svg";
 import { ReactComponent as GitHub } from "../../../../assets/svg/github.svg";
+import LinksContainer from "./LinksContainer";
 
 const variants: Record<string, Variants> = {
   sidePanel: {
@@ -57,18 +58,21 @@ const SidePanel: React.FC = (): JSX.Element => {
     setIsOpen(false);
   };
   useOnClickOutside(ref, handleClickOutside);
-  const links: Record<string, ILinkProps> = {
-    home: {
+  const links:  ILinkProps[] = [
+    {
+      testId: "link-Codeng.co.uk",
       url: "https://codeng.co.uk",
       label: "Codeng.co.uk",
       Icon: Home,
     },
-    github: {
+    {
+      testId: "link-Github repo",
       url: "https://github.com/MichalKurzewski/framer-motion-tailwind-playground",
       label: "Github repo",
       Icon: GitHub,
     },
-  };
+  ];
+
   const sidepanelHoverHandler = () => {
     setIsOpen(true);
     setIsHovering(true);
@@ -93,32 +97,7 @@ const SidePanel: React.FC = (): JSX.Element => {
         setIsHovering(false);
       }}
     >
-      <motion.div
-        className="px-4 py-7 flex justify-center font-head uppercase text-4xl tracking-wide"
-        variants={variants.text}
-      >
-        Links
-      </motion.div>
-      <motion.div
-        className="border-[0.25px] border-red-300/20"
-        variants={variants.border}
-      />
-      <div className="flex justify-center">
-        <div className="w-fit">
-          <motion.div
-            className="py-1 mt-5 flex justify-center font-head uppercase text-lg "
-            variants={variants.link}
-          >
-            <Link {...links.home} />
-          </motion.div>
-          <motion.div
-            className="p-4 flex justify-center font-head uppercase text-lg "
-            variants={variants.link}
-          >
-            <Link {...links.github} />
-          </motion.div>
-        </div>
-      </div>
+      <LinksContainer title="Links" data={links} />
     </motion.div>
   );
 };

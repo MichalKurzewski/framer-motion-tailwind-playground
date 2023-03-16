@@ -18,11 +18,13 @@ const variants: Record<string, Variants> = {
 };
 
 export interface ILinkProps {
+  testId?: string;
   url: string;
   label: string;
   Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
 }
 const Link: React.FC<ILinkProps> = ({
+  testId,
   url,
   label,
   Icon,
@@ -31,6 +33,7 @@ const Link: React.FC<ILinkProps> = ({
 
   return (
     <motion.a
+      data-testid={testId}
       className="relative h-8 font-body w-full hover:underline justify-center flex items-center"
       href={url}
       onMouseEnter={() => setIsHovered(true)}
