@@ -6,7 +6,7 @@ import { motion, Variants } from "framer-motion";
 
 const Switcher: React.FC = (): JSX.Element => {
   const { colorTheme, setTheme } = useDarkMode();
-  
+
   const variants: Record<string, Variants> = {
     theme: {
       animate: {
@@ -30,9 +30,10 @@ const Switcher: React.FC = (): JSX.Element => {
       },
     },
   };
-  
+
   return (
     <motion.button
+      data-testid="theme-toggle"
       id="theme-toggle"
       variants={variants.theme}
       initial="animate"
@@ -51,10 +52,18 @@ const Switcher: React.FC = (): JSX.Element => {
         <Rocket className="rotate-45 dark:fill-slate-200 hidden sm:block " />
       </motion.div>
       {colorTheme === "light" && (
-        <Moon id="moon-icon" className=" fill-slate-200 w-8 h-8 m-2 " />
+        <Moon
+          data-testid="moon-icon"
+          id="moon-icon"
+          className=" fill-slate-200 w-8 h-8 m-2 "
+        />
       )}
       {colorTheme === "dark" && (
-        <Sun id="sun-icon" className=" fill-slate-800 w-8 h-8 m-2" />
+        <Sun
+          data-testid="sun-icon"
+          id="sun-icon"
+          className=" fill-slate-800 w-8 h-8 m-2"
+        />
       )}
     </motion.button>
   );

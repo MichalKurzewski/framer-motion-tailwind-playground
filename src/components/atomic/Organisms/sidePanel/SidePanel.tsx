@@ -49,7 +49,7 @@ const variants: Record<string, Variants> = {
   },
 };
 
-const SidePanel = () => {
+const SidePanel: React.FC = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const ref = useRef(null);

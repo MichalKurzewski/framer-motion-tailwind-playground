@@ -21,7 +21,7 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   return (
-    <main className="min-h-screen relative min-w-[400px]">
+    <main className=" relative min-w-[400px]">
       <section id="absolutes">
         <NavBar />
         <Title

@@ -1,27 +1,24 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { MouseEventHandler } from "react";
 
 interface PathVariants {
   d?: string;
-  variants: {
-    open: { d?: string; opacity?: number };
-    closed: { d?: string; opacity?: number };
-  };
+  variants: Variants;
   transition?: {};
 }
-
-const Path = (props: PathVariants) => (
-  <motion.path className="stroke-color" strokeLinecap="round" {...props} />
-);
 
 export const MenuToggle = ({
   toggle,
 }: {
   toggle: MouseEventHandler<HTMLButtonElement>;
 }): JSX.Element => (
-  <motion.button className="p-[10.5px]" onClick={toggle}>
+  <motion.button className="w-full h-full flex justify-center items-center" onClick={toggle}>
     <ToggleButtonPaths/>
   </motion.button>
+);
+
+const Path = (props: PathVariants) => (
+  <motion.path className="stroke-color" strokeLinecap="round" {...props} />
 );
 
 const ToggleButtonPaths=()=> {

@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 /// <reference types="vite/client" />
 
 import { defineConfig } from "vite";
@@ -8,6 +9,11 @@ import svgr from "vite-plugin-svgr";
 export default defineConfig({
   base: "/framer-motion-tailwind-playground/",
   plugins: [svgr(), react()],
+  test: {
+    globals: true,
+    environment: "jsdom",
+    css: true,
+  },
   server: {
     port: 3000,
   },
