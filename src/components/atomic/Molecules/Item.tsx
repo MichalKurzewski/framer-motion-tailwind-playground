@@ -1,5 +1,5 @@
 import { motion, Variants } from "framer-motion";
-import { variants } from "../Organisms/navbar/SmallNavbar";
+
 interface IItemProps {
   children?: string | JSX.Element | JSX.Element[];
   whileHover?: any;
