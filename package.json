@@ -10,6 +10,7 @@
     "test": "vitest",
     "preview": "vite preview",
     "predeploy": "npm run build",
+    "coverage": "vitest run --coverage",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
@@ -29,6 +30,7 @@
     "@types/react-dom": "^18.0.10",
     "@typescript-eslint/parser": "^5.55.0",
     "@vitejs/plugin-react-swc": "^3.0.0",
+    "@vitest/coverage-c8": "^0.29.3",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.36.0",
     "eslint-config-react-app": "^7.0.1",
