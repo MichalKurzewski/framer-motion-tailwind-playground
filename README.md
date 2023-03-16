@@ -7,12 +7,12 @@ The gh-pages for this repository:
 https://michalkurzewski.github.io/framer-motion-tailwind-playground/
 ## 📚 Table of Contents
 
-- [Features](#✨-features)
-- [Getting Started](#🚀-getting-started)
+- [Features](#-features)
+- [Getting Started](#-getting-started)
 - [Usage](#usage)
 - [Testing](#testing)
 - [Deployment](#deployment)
-- [License](#📄-license)
+- [License](#-license)
 
 ## ✨ Features
 
