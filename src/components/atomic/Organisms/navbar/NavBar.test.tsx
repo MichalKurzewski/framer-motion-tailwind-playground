@@ -1,4 +1,3 @@
-// NavBar.test.tsx
 import { test } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import NavBar from "./NavBar";
