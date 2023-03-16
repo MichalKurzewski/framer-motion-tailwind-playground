@@ -20,7 +20,7 @@ const NavBar: React.FC = (): JSX.Element => {
     <>
       <div className="flex justify-between p-6 bg-transparent">
         <Switcher />
-        <nav className="hidden sm:flex justify-between">
+        <nav data-testid="links" className="hidden sm:flex justify-between">
           <Links variants={variants.init} />
         </nav>
         <motion.nav
@@ -30,7 +30,7 @@ const NavBar: React.FC = (): JSX.Element => {
           whileTap={{ scale: 1 }}
           whileHover={{ scale: 1.2 }}
         >
-          <div className="h-12 w-12  border-color">
+          <div data-testid="menu-toggle" className="h-12 w-12 border-color">
             <MenuToggle toggle={() => setIsOpen(!isOpen)} />
           </div>
         </motion.nav>

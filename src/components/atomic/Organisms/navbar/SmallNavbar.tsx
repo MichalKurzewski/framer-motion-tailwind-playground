@@ -3,7 +3,6 @@ import { motion, Variants } from "framer-motion";
 import { useAtom } from "jotai";
 import { isMenuToggledAtom } from "../../../../JotaiStores/menuToggled";
 
-
 export const variants: Record<string, Variants> = {
   smallNavbarExplode: {
     closed: {
@@ -74,6 +73,7 @@ export const SmallNavbar = () => {
   const [isOpen] = useAtom(isMenuToggledAtom);
   return (
     <motion.div
+      data-testid="small-navbar"
       id="smallBar"
       initial="closed"
       animate={isOpen ? "open" : "closed"}
