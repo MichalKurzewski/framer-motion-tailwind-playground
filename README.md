@@ -63,4 +63,4 @@ https://medium.com/@michal.kurzewski/react-with-router-vite-github-pages-setup-3
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](license).
