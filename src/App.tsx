@@ -8,7 +8,6 @@ import HomePage from "./components/pages/HomePage/HomePage";
 import SidePanel from "./components/atomic/Organisms/sidePanel/SidePanel";
 import { AnimatePresence, LayoutGroup } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
 
 export const links = {
   Home: <HomePage />,
@@ -18,7 +17,6 @@ export const links = {
 
 const App: React.FC = () => {
   const location = useLocation();
-  const [loading, setLoading] = useState(true);
 
   return (
     <main className=" relative min-w-[400px]">
