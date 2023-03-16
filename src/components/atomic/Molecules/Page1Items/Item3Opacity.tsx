@@ -1,4 +1,4 @@
-import { motion, Variants } from "framer-motion";
+import { Variants } from "framer-motion";
 import Item from "../Item";
 
 const variants: Record<string, Variants> = {

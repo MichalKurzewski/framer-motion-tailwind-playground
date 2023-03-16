@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, Variants } from "framer-motion";
+import { Variants } from "framer-motion";
 import ControlPanel from "./ItemControlPanel/ControlPanel";
 import Item from "../Item";
 
