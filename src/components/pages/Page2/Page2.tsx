@@ -1,6 +1,7 @@
 import Item9Menu from "../../atomic/Molecules/Page2Items/Item9Menu";
 import { motion } from "framer-motion";
 import Item10Reorder from "../../atomic/Molecules/Page2Items/Item10Reorder";
+import Item11Lottie from "../../atomic/Molecules/Page2Items/Item11Lottie";
 
 const Page2: React.FC = (): JSX.Element => {
   return (
@@ -12,6 +13,7 @@ const Page2: React.FC = (): JSX.Element => {
     >
       <Item9Menu />
       <Item10Reorder />
+      <Item11Lottie />
     </motion.div>
   );
 };
