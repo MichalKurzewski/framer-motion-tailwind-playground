@@ -3,10 +3,11 @@ import Item2ShapeShift from "../../atomic/Molecules/Page1Items/Item2Shapeshift";
 import Item3Opacity from "../../atomic/Molecules/Page1Items/Item3Opacity";
 import Item4Toggle90Deg from "../../atomic/Molecules/Page1Items/Item4Toggle90Deg";
 import Item5ZoomAndSplash from "../../atomic/Molecules/Page1Items/Item5ZoomAndSplash";
-import Item6LoadingSpinner from "../../atomic/Molecules/Page1Items/Item6LoadingSpinner";
 import Item7Controlled from "../../atomic/Molecules/Page1Items/Item7Controlled";
 import Item8ControlledReducer from "../../atomic/Molecules/Page1Items/Item8ControlledReducer";
 import { LayoutGroup, motion } from "framer-motion";
+import Item9Menu from "../../atomic/Molecules/Page2Items/Item9Menu";
+import Item10Reorder from "../../atomic/Molecules/Page2Items/Item10Reorder";
 
 const Page1: React.FC = (): JSX.Element => {
   return (
@@ -22,9 +23,10 @@ const Page1: React.FC = (): JSX.Element => {
         <Item3Opacity />
         <Item4Toggle90Deg />
         <Item5ZoomAndSplash />
-        <Item6LoadingSpinner />
         <Item7Controlled />
         <Item8ControlledReducer />
+        <Item9Menu />
+        <Item10Reorder />
       </LayoutGroup>
     </motion.div>
   );

@@ -1,8 +1,8 @@
-import Item9Menu from "../../atomic/Molecules/Page2Items/Item9Menu";
 import { motion } from "framer-motion";
-import Item10Reorder from "../../atomic/Molecules/Page2Items/Item10Reorder";
 import React, { Suspense } from "react";
+import Item6LoadingSpinner from "../../atomic/Molecules/Page2Items/Item6LoadingSpinner";
 
+//todo extract first frame from lottie to svg to do a fallback.
 const Page2: React.FC = (): JSX.Element => {
   const Item11Lottie = React.lazy(
     () => import("../../atomic/Molecules/Page2Items/Item11Lottie")
@@ -14,8 +14,7 @@ const Page2: React.FC = (): JSX.Element => {
       animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
       exit={{ opacity: 0, x: -50, transition: { duration: 0.5 } }}
     >
-      <Item9Menu />
-      <Item10Reorder />
+      <Item6LoadingSpinner />
       <Suspense fallback={<div>Loading...</div>}>
         <Item11Lottie />
       </Suspense>
