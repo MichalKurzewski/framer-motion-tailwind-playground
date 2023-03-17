@@ -14,12 +14,14 @@ const Item11Lottie = () => {
   };
   return (
     <div
-      className="div-item cursor-pointer"
+      className="relative div-item cursor-pointer"
       onMouseEnter={handleHoverLottie}
       onClick={handleClickLottie}
       onMouseLeave={() => playerRef.current?.setLoop(false)}
     >
-      <Player src={animationData} className="player" loop ref={playerRef} />
+      <div className="absolute w-40 -translate-y-1/2 top-1/2 -translate-x-1/2 left-1/2">
+        <Player src={animationData} className="player" loop ref={playerRef} />
+      </div>
     </div>
   );
 };
