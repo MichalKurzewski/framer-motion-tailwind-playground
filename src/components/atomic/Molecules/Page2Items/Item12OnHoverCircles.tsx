@@ -126,7 +126,7 @@ const Item12OnHoverCircles = ({ initNumberOfChildren = 4, offset = 125 }) => {
           onChange={(e) => setNumberOfChildren(+e.target.value)}
           value={numberOfChildren}
         />
-      </div>{" "}
+      </div>
     </div>
   );
 };
