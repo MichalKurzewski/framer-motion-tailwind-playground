@@ -1,31 +1,30 @@
-import { motion, Variants, TargetAndTransition } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 interface IItemProps {
   children?: string | JSX.Element | JSX.Element[];
-  whileHover?: TargetAndTransition;
-  label?: string;
-  className?: string;
+  whileHover?: any;
+  label: string;
+  additionalStyling?: string;
   onClick?: React.MouseEventHandler<HTMLElement> | undefined;
   variants?: Variants;
 }
 const Item = (props: IItemProps): JSX.Element => {
-  const MotionPart = () => (
-    <motion.div
-      className="div-item"
-      variants={props.variants}
-      initial="init"
-      animate="animate"
-      whileHover={props.whileHover}
-    />
-  );
   return (
     <div
       className={`relative ${props.onClick ? "cursor-pointer" : ""} ${
-        props.className
+        props.additionalStyling
       }`}
       onClick={props.onClick}
     >
-      {(props.variants || props.whileHover) && <MotionPart />}
+      {props.variants && (
+        <motion.div
+          className="div-item"
+          variants={props.variants}
+          initial="init"
+          animate="animate"
+          whileHover={props.whileHover}
+        />
+      )}
       {props.children}
       <div className="absolute-center txt-color-invert">{props.label}</div>
     </div>
