@@ -30,10 +30,10 @@ const Item12OnHoverCircles = ({ numChildren = 6, radius = 100 }) => {
         borderRadius: "50%",
         transition: {
           type: "spring",
-          bounce: 0,
-          duration: 0.7,
-          delayChildren: 0.5,
-          staggerChildren: 0.15,
+
+          duration: 0.4,
+          delayChildren: 0.4,
+          staggerChildren: 0.05,
         },
       },
     },
@@ -54,7 +54,7 @@ const Item12OnHoverCircles = ({ numChildren = 6, radius = 100 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
 
-  const hoverHandler = () => {
+  const hoverHandler = (e:any) => {
     setIsOpen(true);
     setIsHovering(true);
   };
@@ -78,14 +78,13 @@ const Item12OnHoverCircles = ({ numChildren = 6, radius = 100 }) => {
         setIsHovering(false);
       }}
     >
-      <div className="absolute-center z-auto txt-color-invert">Radial menu</div>
+      <div className="absolute-center txt-color-invert">Radial menu</div>
       <div className="relative top-1/2 flex justify-center items-center">
         {Array.from({ length: numChildren }, (_, i) => (
           <motion.div
             key={"child" + i}
-            className="absolute z-auto rounded-full w-14 h-14 bg-red-700 txt-color-invert flex justify-center items-center"
+            className="absolute rounded-full w-14 h-14 bg-red-700 txt-color-invert flex justify-center items-center"
             variants={variants["child" + i]}
-            onMouseEnter={hoverHandler}
           >
             {"Item" + (i + 1)}
           </motion.div>
