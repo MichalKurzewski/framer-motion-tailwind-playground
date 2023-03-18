@@ -19,7 +19,7 @@ function getCircleCoords(
   return coords;
 }
 
-const Item12OnHoverCircles = ({ numChildren = 6, radius = 100 }) => {
+const Item12OnHoverCircles = ({ numChildren = 8, radius = 120 }) => {
   const coords = getCircleCoords(numChildren, radius);
   const variants: Record<string, Variants> = {
     parent: {
@@ -54,12 +54,13 @@ const Item12OnHoverCircles = ({ numChildren = 6, radius = 100 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
 
-  const hoverHandler = (e:any) => {
+  const hoverHandler = () => {
     setIsOpen(true);
     setIsHovering(true);
   };
 
   useEffect(() => {
+
     if (isOpen && !isHovering) {
       const id = setTimeout(() => setIsOpen(false), 3000);
       return () => clearTimeout(id);
@@ -83,7 +84,7 @@ const Item12OnHoverCircles = ({ numChildren = 6, radius = 100 }) => {
         {Array.from({ length: numChildren }, (_, i) => (
           <motion.div
             key={"child" + i}
-            className="absolute rounded-full w-14 h-14 bg-red-700 txt-color-invert flex justify-center items-center"
+            className="absolute rounded-full w-20 h-20 bg-red-600/80 txt-color-invert flex justify-center items-center"
             variants={variants["child" + i]}
           >
             {"Item" + (i + 1)}
