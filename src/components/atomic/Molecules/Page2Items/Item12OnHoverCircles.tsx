@@ -18,9 +18,9 @@ function getCircleCoords(
 
   return coords;
 }
-
-const Item12OnHoverCircles = ({ numChildren = 8, radius = 120 }) => {
-  const coords = getCircleCoords(numChildren, radius);
+function getVariants(
+  coords: Array<{ x: number; y: number }>
+): Record<string, Variants> {
   const variants: Record<string, Variants> = {
     parent: {
       init: {
@@ -30,29 +30,42 @@ const Item12OnHoverCircles = ({ numChildren = 8, radius = 120 }) => {
         borderRadius: "50%",
         transition: {
           type: "spring",
-
           duration: 0.4,
-          delayChildren: 0.4,
-          staggerChildren: 0.05,
         },
       },
     },
   };
-  for (let i = 0; i < numChildren; i++) {
+
+  coords.forEach((coord, i) => {
     variants["child" + i] = {
       init: {
         opacity: 0,
+        y: 0,
+        x: 0,
       },
       animate: {
         opacity: 1,
-        y: coords[i].y,
-        x: coords[i].x,
+        y: coord.y,
+        x: coord.x,
       },
     };
-  }
+  });
 
+  return variants;
+}
+
+const Item12OnHoverCircles = ({ initNumberOfChildren = 4, offset = 125 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const [numberOfChildren, setNumberOfChildren] =
+    useState(initNumberOfChildren);
+  const coords = getCircleCoords(numberOfChildren, offset);
+  const [variants, setVariants] = useState(getVariants(coords));
+
+  useEffect(() => {
+    const newCoords = getCircleCoords(numberOfChildren, offset);
+    setVariants(getVariants(newCoords));
+  }, [numberOfChildren, offset]);
 
   const hoverHandler = () => {
     setIsOpen(true);
@@ -60,7 +73,6 @@ const Item12OnHoverCircles = ({ numChildren = 8, radius = 120 }) => {
   };
 
   useEffect(() => {
-
     if (isOpen && !isHovering) {
       const id = setTimeout(() => setIsOpen(false), 3000);
       return () => clearTimeout(id);
@@ -68,30 +80,54 @@ const Item12OnHoverCircles = ({ numChildren = 8, radius = 120 }) => {
   }, [isOpen, isHovering]);
 
   return (
-    <motion.div
-      className="div-item relative z-auto"
-      whileHover="animate"
-      variants={variants.parent}
-      initial="init"
-      animate={isOpen ? "animate" : "init"}
-      onMouseEnter={hoverHandler}
-      onMouseLeave={() => {
-        setIsHovering(false);
-      }}
-    >
-      <div className="absolute-center txt-color-invert">Radial menu</div>
-      <div className="relative top-1/2 flex justify-center items-center">
-        {Array.from({ length: numChildren }, (_, i) => (
-          <motion.div
-            key={"child" + i}
-            className="absolute rounded-full w-20 h-20 bg-red-600/80 txt-color-invert flex justify-center items-center"
-            variants={variants["child" + i]}
-          >
-            {"Item" + (i + 1)}
-          </motion.div>
-        ))}
-      </div>
-    </motion.div>
+    <div className="h-32">
+      <motion.div
+        className="div-item relative z-auto"
+        variants={variants.parent}
+        initial="init"
+        animate={isOpen ? "animate" : "init"}
+        onMouseEnter={hoverHandler}
+        onClick={hoverHandler}
+        onMouseLeave={() => {
+          setIsHovering(false);
+        }}
+      >
+        <div className="absolute-center txt-color-invert">Radial menu</div>
+
+        <div className="relative top-1/2 flex justify-center items-center">
+          {Array.from({ length: numberOfChildren }, (_, i) => (
+            <motion.div
+              key={"child" + i}
+              initial="init"
+              animate={isOpen ? "animate" : "init"}
+              className="absolute z-40 backdrop-blur-sm rounded-full w-20 h-20 bg-red-600/20 dark:bg-red-300/60 txt-color-invert flex justify-center items-center cursor-pointer"
+              variants={variants["child" + i]}
+              whileHover={{
+                scale: 1.2,
+              }}
+              whileTap={{ scale: 0.8 }}
+            >
+              {"Item" + (i + 1)}
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+      <div className="flex justify-center">
+        <input
+          className="w-24 cursor-pointer accent-slate-500"
+          onMouseEnter={hoverHandler}
+          onMouseLeave={() => {
+            setIsHovering(false);
+          }}
+          type="range"
+          min={1}
+          max={10}
+          step={1}
+          onChange={(e) => setNumberOfChildren(+e.target.value)}
+          value={numberOfChildren}
+        />
+      </div>{" "}
+    </div>
   );
 };
 

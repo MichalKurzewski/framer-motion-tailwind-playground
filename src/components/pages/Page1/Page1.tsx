@@ -6,8 +6,8 @@ import Item5ZoomAndSplash from "../../atomic/Molecules/Page1Items/Item5ZoomAndSp
 import Item7Controlled from "../../atomic/Molecules/Page1Items/Item7Controlled";
 import Item8ControlledReducer from "../../atomic/Molecules/Page1Items/Item8ControlledReducer";
 import { LayoutGroup, motion } from "framer-motion";
-import Item9Menu from "../../atomic/Molecules/Page2Items/Item9Menu";
-import Item10Reorder from "../../atomic/Molecules/Page2Items/Item10Reorder";
+import Item9Menu from "../../atomic/Molecules/Page1Items/Item9Menu";
+import Item10Reorder from "../../atomic/Molecules/Page1Items/Item10Reorder";
 
 const Page1: React.FC = (): JSX.Element => {
   return (

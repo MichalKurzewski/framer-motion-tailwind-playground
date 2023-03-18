@@ -3,40 +3,32 @@ import { render, fireEvent, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Item12OnHoverCircles from "./Item12OnHoverCircles";
 
+
 test("renders without crashing", () => {
   render(<Item12OnHoverCircles />);
   expect(screen.getByText("Radial menu")).toBeInTheDocument();
 });
 
-test("shows children items when hovering over the radial menu", async () => {
-  render(<Item12OnHoverCircles numChildren={7} />);
-
-  const radialMenu = screen.getByText("Radial menu");
-  fireEvent.mouseEnter(radialMenu);
-
-  await screen.findByText("Item1");
-  await screen.findByText("Item2");
-  await screen.findByText("Item3");
-  await screen.findByText("Item4");
-  await screen.findByText("Item5");
-  await screen.findByText("Item6");
-  await screen.findByText("Item7");
+test("renders initial number of children", () => {
+  render(<Item12OnHoverCircles initNumberOfChildren={4} />);
+  expect(screen.getAllByText(/Item\d+/)).toHaveLength(4);
 });
 
-test("hides children items when not hovering over the radial menu", async () => {
-  render(<Item12OnHoverCircles numChildren={7} />);
-
+test("hovering expands menu", async () => {
+  render(<Item12OnHoverCircles />);
   const radialMenu = screen.getByText("Radial menu");
+
   fireEvent.mouseEnter(radialMenu);
+  const items = await screen.findAllByText(/Item\d+/);
+  expect(items).toHaveLength(4);
+});
 
-  await screen.findByText("Item1");
-  fireEvent.mouseLeave(radialMenu);
+test("changing input value updates number of children", async () => {
+  render(<Item12OnHoverCircles initNumberOfChildren={4} />);
+  const input = screen.getByRole("slider");
+  fireEvent.input(input, { target: { value: "6" } });
 
-  expect(screen.queryByText("Item1")).not.toBeVisible();
-  expect(screen.queryByText("Item2")).not.toBeVisible();
-  expect(screen.queryByText("Item3")).not.toBeVisible();
-  expect(screen.queryByText("Item4")).not.toBeVisible();
-  expect(screen.queryByText("Item5")).not.toBeVisible();
-  expect(screen.queryByText("Item6")).not.toBeVisible();
-  expect(screen.queryByText("Item7")).not.toBeVisible();
+  fireEvent.mouseEnter(screen.getByText("Radial menu"));
+  const items = await screen.findAllByText(/Item\d+/);
+  expect(items).toHaveLength(6);
 });
