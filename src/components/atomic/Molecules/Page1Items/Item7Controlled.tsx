@@ -57,7 +57,7 @@ const Item7Controlled = (): JSX.Element => {
   return (
     <div className="flex justify-between gap-2">
       <Item
-        additionalStyling="border border-slate-600 dark:border-slate-400 rounded-md"
+        className="border border-slate-600 dark:border-slate-400 rounded-md"
         label="Controlled Element"
         variants={variants.transformation}
       />
