@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, Variants } from "framer-motion";
 
-//to stagger children animate and init must be the same and you supply only variants to the Elements
 const variants: Record<string, Variants> = {
   item: {
     animate: {
@@ -32,11 +31,26 @@ const variants: Record<string, Variants> = {
     },
   },
 };
-//todo instead hardcoded divs
-// const initialItems = ["Item 1", "Item 2", "Item 3", "Item 4"];
+
+interface ListItemsProps {
+  items: string[];
+}
+
+const ListItems = ({ items }: ListItemsProps) => {
+  return (
+    <div>
+      {items.map((item, index) => (
+        <motion.li key={index} variants={variants.item}>
+          {item}
+        </motion.li>
+      ))}
+    </div>
+  );
+};
 
 const Item9Menu = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
+  const initialItems = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"];
   return (
     <motion.nav animate={isOpen ? "animate" : "init"} className="div-item p-2">
       <motion.button
@@ -62,25 +76,14 @@ const Item9Menu = (): JSX.Element => {
         </motion.div>
       </motion.button>
       <motion.ul
-        className="w-full bg-slate-100/10 dark:bg-slate-600/10 backdrop-blur-md p-4 border-[0.5px] rounded-xl shadow-md"
+        className="w-full bg-slate-100/40 dark:bg-slate-600/10 backdrop-blur-md p-4 border-[0.5px] rounded-xl shadow-md"
         variants={variants.ul}
         style={{ pointerEvents: isOpen ? "auto" : "none" }}
       >
-        <ListItems />
+        <ListItems items={initialItems} />
       </motion.ul>
     </motion.nav>
   );
 };
 
 export default Item9Menu;
-
-const ListItems = () => {
-  return (
-    <div>
-      <motion.li variants={variants.item}>Item 1 </motion.li>
-      <motion.li variants={variants.item}>Item 2 </motion.li>
-      <motion.li variants={variants.item}>Item 3 </motion.li>
-      <motion.li variants={variants.item}>Item 4 </motion.li>
-    </div>
-  );
-};

@@ -1,4 +1,3 @@
-// Switcher.test.tsx
 import { test } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Switcher from "./Switcher";
