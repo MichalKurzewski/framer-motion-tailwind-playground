@@ -40,7 +40,7 @@ const App: React.FC = () => {
                   element={Object.values(links)[index]}
                 />
               ))}
-              <Route key="welcome" path="/" element={<HomePage />}></Route>
+              <Route key="welcome" path="/" element={<HomePage />}/>
             </Routes>
           </AnimatePresence>
         </LayoutGroup>
