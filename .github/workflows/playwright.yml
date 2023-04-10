@@ -22,10 +22,10 @@ jobs:
         run: npx playwright install --with-deps
 
       # Start the server in the background
-      - name: Start server
-        run: npm run dev &
-        env:
-          CI: true
+      # - name: Start server
+      #   run: npm run dev &
+      #   env:
+      #     CI: true
 
       # # Wait for the server to be ready before running the tests
       # - name: Wait for server to be ready
