@@ -18,7 +18,7 @@ jobs:
       - name: install playwright browsers
         run: npx playwright install --with-deps
       - name: npm run test:e2e
-        run: npm run test:e2e=
+        run: npm run test:e2e
 
       # Upload the Playwright report as an artifact
       - uses: actions/upload-artifact@v3
