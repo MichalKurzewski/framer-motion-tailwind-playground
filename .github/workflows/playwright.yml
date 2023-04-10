@@ -21,18 +21,6 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      # Start the server in the background
-      # - name: Start server
-      #   run: npm run dev &
-      #   env:
-      #     CI: true
-
-      # # Wait for the server to be ready before running the tests
-      # - name: Wait for server to be ready
-      #   run: npx wait-on http://localhost:4000/framer-motion-tailwind-playground/
-      #   env:
-      #     CI: true
-
       # Run the Playwright tests
       - name: Run Playwright tests
         run: npx playwright test
