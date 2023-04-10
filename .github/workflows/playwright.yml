@@ -23,7 +23,7 @@ jobs:
 
       # Start the server in the background
       - name: Start server
-        run: npm run start &
+        run: npm run dev &
         env:
           CI: true
 
