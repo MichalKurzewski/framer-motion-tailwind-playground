@@ -8,6 +8,8 @@
     "dev": "cross-env NODE_OPTIONS='--inspect' vite",
     "build": "tsc && vite build",
     "test": "vitest",
+    "test:e2e": "playwright test",
+    "start": "npm run build && next start",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "coverage": "vitest run --coverage",
