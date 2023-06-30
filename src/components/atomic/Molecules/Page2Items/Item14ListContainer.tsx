@@ -89,7 +89,7 @@ const Item14ListContainer = () => {
   function ContainerItemList() {
     const itemCount = 120;
     return (
-      <motion.ul className="flex flex-col" variants={variants.itemList}>
+      <ul className="flex flex-col">
         <div className="h-[100px]  bg-slate-500 sticky flex flex-col top-0 w-full ">
           <div className="pl-1 bg-black text-white">{time} O2</div>
           <div className="bg-white flex-1 border-b-indigo-700/30 border-b-4">
@@ -106,7 +106,7 @@ const Item14ListContainer = () => {
             +
           </div>
         </div>
-      </motion.ul>
+      </ul>
     );
   }
   return (
@@ -121,7 +121,9 @@ const Item14ListContainer = () => {
       animate={isOpen ? "animate" : "init"}
       className="no-scrollbar snap-mandatory div-item border-2 border-slate-600 dark:border-slate-300"
     >
-      <ContainerItemList />
+      <motion.div variants={variants.itemList}>
+        <ContainerItemList />
+      </motion.div>
     </motion.div>
   );
 };
