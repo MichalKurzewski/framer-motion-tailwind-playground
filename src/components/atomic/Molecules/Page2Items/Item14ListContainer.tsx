@@ -20,9 +20,11 @@ const variants: Record<string, Variants> = {
   },
   itemList: {
     init: {
+      display: "none",
       visibility: "hidden",
     },
     animate: {
+      display: "block",
       visibility: "visible",
     },
   },
@@ -87,24 +89,24 @@ const Item14ListContainer = () => {
   function ContainerItemList() {
     const itemCount = 120;
     return (
-      <>
-        <motion.ul className="flex flex-col" variants={variants.itemList}>
-          <div className="h-[100px]  bg-slate-500 sticky flex flex-col top-0 w-full ">
-            <div className="pl-1 bg-black text-white">{`${time} O2`}</div>
-            <div className="bg-white flex-1 border-b-indigo-700/30 border-b-4">
-              <div className="text-xl text-center font-bold text-indigo-700">Rewards</div>
+      <motion.ul className="flex flex-col" variants={variants.itemList}>
+        <div className="h-[100px]  bg-slate-500 sticky flex flex-col top-0 w-full ">
+          <div className="pl-1 bg-black text-white">{time} O2</div>
+          <div className="bg-white flex-1 border-b-indigo-700/30 border-b-4">
+            <div className="text-xl text-center font-bold text-indigo-700">
+              Rewards
             </div>
           </div>
-          {Array.from({ length: itemCount }, (_, index) => (
-            <ContainerItem key={index}></ContainerItem>
-          ))}
-          <div className="h-[100px] bg-indigo-700 sticky bottom-0 w-full rounded-t-lg ">
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center w-24 h-24 bg-cyan-300 rounded-full text-white">
-              +
-            </div>
+        </div>
+        {Array.from({ length: itemCount }, (_, index) => (
+          <ContainerItem key={index}></ContainerItem>
+        ))}
+        <div className="h-[100px] bg-indigo-700 sticky bottom-0 w-full rounded-t-lg ">
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center w-24 h-24 bg-cyan-300 rounded-full text-white">
+            +
           </div>
-        </motion.ul>
-      </>
+        </div>
+      </motion.ul>
     );
   }
   return (
