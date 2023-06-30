@@ -50,7 +50,7 @@ const variants: Record<string, Variants> = {
 const Item6LoadingSpinner: React.FC = (): JSX.Element => {
   return (
     <motion.div
-      className="relative"
+      className="relative h-32"
       whileHover={{ opacity: 0.5 }}
       initial={{ scale: 1 }}
     >
