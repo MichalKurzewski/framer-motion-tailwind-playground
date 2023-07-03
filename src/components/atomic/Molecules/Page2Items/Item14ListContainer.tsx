@@ -68,7 +68,7 @@ function ContainerItem({ index }: { index: number }) {
       animate: {
         opacity: [0, 0, 1, 1],
         x: isInView ? [50, -20, -20, -20] : 50,
-        transition: { duration: 2, times: isInView ? [0, 0.5, 0.8, 1] : [] },
+        transition: { duration: 1.5, times: isInView ? [0, 0.5, 0.8, 1] : [] },
         width: isInView ? [64, 64, 64, 350] : [],
       },
     },
@@ -76,19 +76,19 @@ function ContainerItem({ index }: { index: number }) {
       flap: {
         rotateY: [0, 0, 0, 360],
         opacity: [1, 1, 1, 0, 0],
-        transition: { duration: 3, times: [0, 0.6, 0.85, 0.9, 1] },
+        transition: { duration: 1.5, times: [0, 0.6, 0.85, 0.9, 1] },
       },
       flip: {
         rotateY: [0, 0, 0, 360],
         opacity: [0, 0, 0, 0, 1],
-        transition: { duration: 3, times: [0, 0.6, 0.85, 0.9, 1] },
+        transition: { duration: 1.5, times: [0, 0.6, 0.85, 0.9, 1] },
       },
     },
     microchip: {
       init: {},
       animate: {
         opacity: isInView ? [0, 0, 1] : 0,
-        transition: { duration: 2, times: [0, 0.9, 1] },
+        transition: { duration: 1.5, times: [0, 0.9, 1] },
       },
     },
   };
@@ -139,7 +139,7 @@ function ContainerItem({ index }: { index: number }) {
             <ImUnlocked />
           </motion.div>
           <motion.div
-            className="flex fixed top-3 right-3 text-red-400 "
+            className="flex fixed top-3 right-1.5 text-red-400 "
             variants={variants.padlock}
             initial={`${isInView ? "flap" : ""}`}
             animate={`${isInView ? "flip" : ""}`}
