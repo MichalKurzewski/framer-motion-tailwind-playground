@@ -1,12 +1,11 @@
 import {
   Variants,
-  animate,
   motion,
   useInView,
   useScroll,
   useSpring,
 } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import useOnClickOutside from "../../../../hooks/useOnClickOutside";
 import { BsReception3 } from "react-icons/bs";
 import { MdBattery5Bar } from "react-icons/md";
@@ -48,7 +47,7 @@ const variants: Record<string, Variants> = {
 };
 function ContainerItem({ index }: { index: number }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
+  const isInView = useInView(ref, { once: true });
   const variants: Record<string, Variants> = {
     item: {
       init: {
@@ -75,12 +74,12 @@ function ContainerItem({ index }: { index: number }) {
     },
     padlock: {
       flap: {
-        rotateY: [0, 0,0, 360],
+        rotateY: [0, 0, 0, 360],
         opacity: [1, 1, 1, 0, 0],
         transition: { duration: 3, times: [0, 0.6, 0.85, 0.9, 1] },
       },
       flip: {
-        rotateY: [0, 0,0, 360],
+        rotateY: [0, 0, 0, 360],
         opacity: [0, 0, 0, 0, 1],
         transition: { duration: 3, times: [0, 0.6, 0.85, 0.9, 1] },
       },
@@ -221,6 +220,9 @@ const Item14ListContainer = () => {
   function ActivityButton({
     isFooterToggled,
     setIsFooterToggled,
+  }: {
+    isFooterToggled: boolean;
+    setIsFooterToggled: Dispatch<SetStateAction<boolean>>;
   }): JSX.Element {
     const variants: Record<string, Variants> = {
       activityButton: {
