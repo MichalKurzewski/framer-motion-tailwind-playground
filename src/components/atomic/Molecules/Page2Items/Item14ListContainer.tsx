@@ -24,8 +24,8 @@ const variants: Record<string, Variants> = {
     init: {},
     animate: {
       backgroundColor: "rgb(252,252,252)",
-      width: "440px",
-      height: "800px",
+      width: "400px",
+      height: "700px",
       cursor: "default",
       borderRadius: "20px",
     },
@@ -125,8 +125,11 @@ function ContainerItem({ index }: { index: number }) {
       },
     },
     microchipMessage: {
-      init: {},
+      init: {
+        display:"none"
+      },
       animate: {
+        display:"block",
         opacity: isInView ? [0, 0, 1] : 0,
         transition: { duration: 1, times: [0, 0.5, 1] },
       },
@@ -136,12 +139,12 @@ function ContainerItem({ index }: { index: number }) {
   return (
     <section
       ref={ref}
-      className="relative h-[600px]"
-      style={{ perspective: "500px" }}
+      className="relative h-[500px]"
+      style={{ perspective: "400px" }}
     >
       <li className="m-2  snap-start ">
         <img
-          src={`https://picsum.photos/id/${index * 4}/600/300`}
+          src={`https://picsum.photos/id/${index * 4}/400/224`}
           alt={`number ${index}`}
           className="bg-slate-500 h-56"
         />
@@ -361,7 +364,7 @@ const Item14ListContainer = () => {
         <motion.div className="progress h-3 bg-indigo-600" style={{ scaleX }} />
         <ul
           ref={listRef}
-          className="snap-mandatory snap-y overflow-scroll w-full h-[600px] no-scrollbar"
+          className="snap-mandatory snap-y overflow-scroll w-full h-[500px] no-scrollbar"
         >
           {Array.from(
             {
