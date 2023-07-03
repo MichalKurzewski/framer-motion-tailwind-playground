@@ -5,15 +5,19 @@ import {
   useScroll,
   useSpring,
 } from "framer-motion";
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useOnClickOutside from "../../../../hooks/useOnClickOutside";
 import { BsReception3 } from "react-icons/bs";
 import { MdBattery5Bar } from "react-icons/md";
 import { AiOutlineWifi, AiOutlinePlus } from "react-icons/ai";
-import { ImHome, ImUnlocked, ImLock } from "react-icons/im";
+import { ImHome } from "react-icons/im";
 import { SlBadge } from "react-icons/sl";
 import { BsTicketPerforatedFill } from "react-icons/bs";
 import { FaShoppingBag } from "react-icons/fa";
+import { ReactComponent as Shackle } from "../../../../assets/svg/lock.svg";
+import { ReactComponent as Lock } from "../../../../assets/svg/lock2.svg";
+import { useAtom } from "jotai";
+import { isAllowedAtom } from "../../../../JotaiStores/item14Allowed";
 
 const variants: Record<string, Variants> = {
   sidePanel: {
@@ -45,9 +49,56 @@ const variants: Record<string, Variants> = {
     },
   },
 };
+
+function Padlock({
+  isInView,
+  isAllowed,
+}: {
+  isInView: boolean;
+  isAllowed: boolean;
+}) {
+  const variants: Record<string, Variants> = {
+    padlock: {
+      init: {},
+      animate: isAllowed
+        ? { fill: isInView ? "rgb(255,255,255)" : "rgb(255,50,0)" }
+        : { fill: isInView ? "rgb(255,50,0)" : "rgb(255,255,255)" },
+    },
+    shackle: isAllowed
+      ? {
+          init: { originX: "23.5px", rotateY: 180 },
+          animate: isInView
+            ? { rotateY: [180, 180, 0, 0], y: [4, 0, 0, 0] }
+            : {},
+        }
+      : {
+          init: { originX: "23.5px" },
+          animate: isInView ? { rotateY: 180, y: [0, 0, 4] } : {},
+        },
+  };
+  return (
+    <motion.div
+      variants={variants.padlock}
+      className={`flex relative w-[60%] h-[60%] center-element ${
+        isAllowed ? "fill-[rgb(255,50,0)]" : "fill-[rgb(255,255,255)]"
+      }`}
+    >
+      <motion.div className="absolute w-full">
+        <Lock />
+      </motion.div>
+      <motion.div
+        variants={variants.shackle}
+        className="absolute w-full -left-3.5 -top-[3px]"
+      >
+        <Shackle />
+      </motion.div>
+    </motion.div>
+  );
+}
 function ContainerItem({ index }: { index: number }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const [isAllowed] = useAtom(isAllowedAtom);
   const variants: Record<string, Variants> = {
     item: {
       init: {
@@ -60,35 +111,24 @@ function ContainerItem({ index }: { index: number }) {
         transition: { duration: 1 },
       },
     },
-    message: {
-      // init: {
-      //   opacity: isInView ? 0 : 1,
-      //   x: 50,
-      // },
+    messageContainer: {
+      init: {},
       animate: {
         opacity: [0, 0, 1, 1],
         x: isInView ? [50, -20, -20, -20] : 50,
-        transition: { duration: 1.5, times: isInView ? [0, 0.5, 0.8, 1] : [] },
-        width: isInView ? [64, 64, 64, 350] : [],
+        transition: {
+          delayChildren: 1,
+          duration: 1.5,
+          times: isInView ? [0, 0.5, 0.8, 1] : [],
+        },
+        width: isInView ? [56, 56, 56, isAllowed ? 56 : 290] : [],
       },
     },
-    padlock: {
-      flap: {
-        rotateY: [0, 0, 0, 360],
-        opacity: [1, 1, 1, 0, 0],
-        transition: { duration: 1.5, times: [0, 0.6, 0.85, 0.9, 1] },
-      },
-      flip: {
-        rotateY: [0, 0, 0, 360],
-        opacity: [0, 0, 0, 0, 1],
-        transition: { duration: 1.5, times: [0, 0.6, 0.85, 0.9, 1] },
-      },
-    },
-    microchip: {
+    microchipMessage: {
       init: {},
       animate: {
         opacity: isInView ? [0, 0, 1] : 0,
-        transition: { duration: 1.5, times: [0, 0.9, 1] },
+        transition: { duration: 1, times: [0, 0.5, 1] },
       },
     },
   };
@@ -101,7 +141,7 @@ function ContainerItem({ index }: { index: number }) {
     >
       <li className="m-2  snap-start ">
         <img
-          src={`https://picsum.photos/id/${index * 3}/600/300`}
+          src={`https://picsum.photos/id/${index * 4}/600/300`}
           alt={`number ${index}`}
           className="bg-slate-500 h-56"
         />
@@ -114,40 +154,28 @@ function ContainerItem({ index }: { index: number }) {
       </li>
       <motion.h2
         variants={variants.item}
+        initial="init"
         animate="animate"
         className="flex text-white absolute top-8 text-4xl bg-slate-200/50 w-32 justify-end p-1 backdrop-blur-sm"
       >{`#00${index}`}</motion.h2>
-      <motion.h2
-        variants={variants.message}
+      <motion.div
+        variants={variants.messageContainer}
+        initial="init"
         animate="animate"
-        className="flex  justify-between text-white absolute top-36 w-16 h-16 rounded-full right-0 text-4xl bg-slate-500/50  p-1 backdrop-blur-sm"
+        className="flex justify-between text-white absolute top-36 w-14 h-14 rounded-full right-0 text-4xl bg-indigo-700/60  backdrop-blur-sm shadow-lg"
       >
-        <motion.h2
-          variants={variants.microchip}
-          animate="animate"
-          className="text-2xl p-3"
-        >
-          Microchip required
-        </motion.h2>
-        <div className="relative  ">
-          <motion.div
-            className="flex fixed top-3 right-3"
-            variants={variants.padlock}
-            initial={`${isInView ? "flip" : ""}`}
-            animate={`${isInView ? "flap" : ""}`}
+        {!isAllowed && (
+          <motion.h2
+            variants={variants.microchipMessage}
+            className="text-2xl p-[12px]"
           >
-            <ImUnlocked />
-          </motion.div>
-          <motion.div
-            className="flex fixed top-3 right-1.5 text-red-400 "
-            variants={variants.padlock}
-            initial={`${isInView ? "flap" : ""}`}
-            animate={`${isInView ? "flip" : ""}`}
-          >
-            <ImLock />
-          </motion.div>
+            Microchip required
+          </motion.h2>
+        )}
+        <div className="absolute right-0 top-0  w-14 h-14 rounded-full bg-indigo-200/10 border-2 border-indigo-300/10">
+          <Padlock isInView={isInView} isAllowed={isAllowed} />
         </div>
-      </motion.h2>
+      </motion.div>
     </section>
   );
 }
@@ -155,7 +183,7 @@ function ContainerItem({ index }: { index: number }) {
 const Item14ListContainer = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
-  const timerId = useRef<any>();
+  const timerId = useRef<NodeJS.Timeout>();
   const containerRef = useRef(null);
 
   const handleClickOutside = () => {
@@ -217,13 +245,8 @@ const Item14ListContainer = () => {
     );
   }
 
-  function ActivityButton({
-    isFooterToggled,
-    setIsFooterToggled,
-  }: {
-    isFooterToggled: boolean;
-    setIsFooterToggled: Dispatch<SetStateAction<boolean>>;
-  }): JSX.Element {
+  function ActivityButton(): JSX.Element {
+    const [isAllowed, setIsAllowed] = useAtom(isAllowedAtom);
     const variants: Record<string, Variants> = {
       activityButton: {
         init: {
@@ -238,8 +261,8 @@ const Item14ListContainer = () => {
           y: 5,
         },
         toggle: {
-          rotate: isFooterToggled ? 135 : 0,
-          color: isFooterToggled ? "rgb(255,0,0)" : "rgb(252,252,252)",
+          rotate: isAllowed ? 0 : 135,
+          color: isAllowed ? "rgb(252,252,252)" : "rgb(255,50,0)",
         },
       },
     };
@@ -250,7 +273,7 @@ const Item14ListContainer = () => {
         whileHover="hover"
         whileTap="tap"
         className="w-20 h-20 bg-cyan-300 rounded-full cursor-pointer text-white mb-8"
-        onClick={() => setIsFooterToggled(!isFooterToggled)}
+        onClick={() => setIsAllowed(!isAllowed)}
       >
         <motion.div
           variants={variants.activityButton}
@@ -389,16 +412,3 @@ const Item14ListContainer = () => {
 };
 
 export default Item14ListContainer;
-// const currentRef = useRef(null);
-// function useParallax(value: MotionValue<number>, distance: number) {
-//   return useTransform(value, [0, 1], [-distance, distance]);
-// }
-// const { scrollYProgress } = useScroll({
-//   target: currentRef,
-// });
-
-// useMotionValueEvent(scrollYProgress, "change", (latest) => {
-//   console.log("Page scroll: ", latest);
-// });
-
-// const y = useParallax(scrollYProgress, 300);
