@@ -40,14 +40,6 @@ const variants: Record<string, Variants> = {
       visibility: "visible",
     },
   },
-  containerItem: {
-    normal: {
-      scale: 1,
-    },
-    scaled: {
-      scale: 2,
-    },
-  },
 };
 
 function Padlock({
@@ -66,13 +58,13 @@ function Padlock({
     },
     shackle: isAllowed
       ? {
-          init: { originX: "22.5px", rotateY: 180 },
+          init: { originX: "23px", rotateY: 180 },
           animate: isInView
             ? { rotateY: [180, 180, 0, 0], y: [4, 0, 0, 0] }
             : {},
         }
       : {
-          init: { originX: "22.5px" },
+          init: { originX: "23px" },
           animate: isInView ? { rotateY: 180, y: [0, 0, 4] } : {},
         },
   };
@@ -156,30 +148,34 @@ function ContainerItem({ index }: { index: number }) {
           placeat quae nostrum voluptate.
         </div>
       </li>
-      <motion.h2
-        variants={variants.item}
-        initial="init"
-        animate="animate"
-        className="flex text-white absolute top-8 text-4xl bg-slate-200/50 w-32 justify-end p-1 backdrop-blur-sm"
-      >{`#00${index}`}</motion.h2>
-      <motion.div
-        variants={variants.messageContainer}
-        initial="init"
-        animate="animate"
-        className="flex absolute top-36 w-14 h-14 rounded-full right-0 bg-indigo-700/60  backdrop-blur-sm shadow-lg"
-      >
-        {!isAllowed && (
+      {isInView && (
+        <div>
           <motion.h2
-            variants={variants.microchipMessage}
-            className="text-white ml-5 text-2xl h-14 items-center"
+            variants={variants.item}
+            initial="init"
+            animate="animate"
+            className="flex text-white absolute top-8 text-4xl bg-slate-200/50 w-32 justify-end p-1 backdrop-blur-sm"
+          >{`#00${index}`}</motion.h2>
+          <motion.div
+            variants={variants.messageContainer}
+            initial="init"
+            animate="animate"
+            className="flex absolute top-36 w-14 h-14 rounded-full right-0 bg-indigo-700/60  backdrop-blur-sm shadow-lg"
           >
-            Microchip required
-          </motion.h2>
-        )}
-        <div className="absolute right-0 top-0 w-14 h-14 rounded-full bg-indigo-200/10 border-2 border-indigo-300/10">
-          <Padlock isInView={isInView} isAllowed={isAllowed} />
+            {!isAllowed && (
+              <motion.h2
+                variants={variants.microchipMessage}
+                className="text-white ml-5 text-2xl h-14 items-center"
+              >
+                Microchip required
+              </motion.h2>
+            )}
+            <div className="absolute right-0 top-0 w-14 h-14 rounded-full bg-indigo-200/10 border-2 border-indigo-300/10">
+              <Padlock isInView={isInView} isAllowed={isAllowed} />
+            </div>
+          </motion.div>
         </div>
-      </motion.div>
+      )}
     </section>
   );
 }
@@ -201,7 +197,7 @@ const Item14ListContainer = () => {
   };
   useEffect(() => {
     if (isOpen && !isHovering) {
-      const id = setTimeout(() => setIsOpen(false), 100000);
+      const id = setTimeout(() => setIsOpen(false), 10000);
       return () => clearTimeout(id);
     }
   }, [isOpen, isHovering]);
@@ -394,7 +390,7 @@ const Item14ListContainer = () => {
 
   return (
     <div className="flex flex-col txt-uni">
-      <span className="text-center">Phone Store</span>
+      <span className="text-center txt-color">Phone Store</span>
       <motion.div
         ref={containerRef}
         onMouseEnter={handleHoverOrClick}
