@@ -66,13 +66,13 @@ function Padlock({
     },
     shackle: isAllowed
       ? {
-          init: { originX: "23.5px", rotateY: 180 },
+          init: { originX: "22.5px", rotateY: 180 },
           animate: isInView
             ? { rotateY: [180, 180, 0, 0], y: [4, 0, 0, 0] }
             : {},
         }
       : {
-          init: { originX: "23.5px" },
+          init: { originX: "22.5px" },
           animate: isInView ? { rotateY: 180, y: [0, 0, 4] } : {},
         },
   };
@@ -126,10 +126,11 @@ function ContainerItem({ index }: { index: number }) {
     },
     microchipMessage: {
       init: {
-        display:"none"
+        display: "none",
+        opacity: 0,
       },
       animate: {
-        display:"block",
+        display: isInView ? "flex" : "none",
         opacity: isInView ? [0, 0, 1] : 0,
         transition: { duration: 1, times: [0, 0.5, 1] },
       },
@@ -165,17 +166,17 @@ function ContainerItem({ index }: { index: number }) {
         variants={variants.messageContainer}
         initial="init"
         animate="animate"
-        className="flex justify-between text-white absolute top-36 w-14 h-14 rounded-full right-0 text-4xl bg-indigo-700/60  backdrop-blur-sm shadow-lg"
+        className="flex  absolute top-36 w-14 h-14 rounded-full right-0 bg-indigo-700/60  backdrop-blur-sm shadow-lg"
       >
         {!isAllowed && (
           <motion.h2
             variants={variants.microchipMessage}
-            className="text-2xl p-[12px]"
+            className="text-white ml-5 text-2xl h-14 items-center"
           >
             Microchip required
           </motion.h2>
         )}
-        <div className="absolute right-0 top-0  w-14 h-14 rounded-full bg-indigo-200/10 border-2 border-indigo-300/10">
+        <div className="absolute right-0 top-0 w-14 h-14 rounded-full bg-indigo-200/10 border-2 border-indigo-300/10">
           <Padlock isInView={isInView} isAllowed={isAllowed} />
         </div>
       </motion.div>
@@ -318,7 +319,7 @@ const Item14ListContainer = () => {
             <div>Badges</div>
           </motion.div>
 
-          <ActivityButton/>
+          <ActivityButton />
 
           <motion.div
             whileHover={{
