@@ -287,7 +287,6 @@ const Item14ListContainer = () => {
   }
 
   function ContainerFooter() {
-    const [isFooterToggled, setIsFooterToggled] = useState(false);
     return (
       <footer className="h-[100px] w-full bg-indigo-700 rounded-t-lg select-none">
         <div className="absolute bottom-0 text-white flex justify-evenly w-full ">
@@ -316,10 +315,7 @@ const Item14ListContainer = () => {
             <div>Badges</div>
           </motion.div>
 
-          <ActivityButton
-            setIsFooterToggled={setIsFooterToggled}
-            isFooterToggled={isFooterToggled}
-          />
+          <ActivityButton/>
 
           <motion.div
             whileHover={{
@@ -393,21 +389,24 @@ const Item14ListContainer = () => {
   }
 
   return (
-    <motion.div
-      ref={containerRef}
-      onMouseEnter={handleHoverOrClick}
-      onMouseLeave={() => {
-        setIsHovering(false);
-      }}
-      onClick={handleHoverOrClick}
-      variants={variants.sidePanel}
-      animate={isOpen ? "animate" : "init"}
-      className="div-item border-2 relative border-slate-600 dark:border-slate-300 overflow-clip"
-    >
-      <motion.div variants={variants.itemList}>
-        <ItemContainer />
+    <div className="flex flex-col txt-uni">
+      <span className="text-center">Phone Store</span>
+      <motion.div
+        ref={containerRef}
+        onMouseEnter={handleHoverOrClick}
+        onMouseLeave={() => {
+          setIsHovering(false);
+        }}
+        onClick={handleHoverOrClick}
+        variants={variants.sidePanel}
+        animate={isOpen ? "animate" : "init"}
+        className="div-item border-2 relative border-slate-600 dark:border-slate-300 overflow-clip"
+      >
+        <motion.div variants={variants.itemList}>
+          <ItemContainer />
+        </motion.div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 };
 

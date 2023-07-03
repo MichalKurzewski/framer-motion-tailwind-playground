@@ -30,6 +30,9 @@
 .txt-color {
   @apply text-slate-600 dark:text-slate-200;
 }
+.txt-uni {
+  @apply text-slate-600;
+}
 .txt-color-invert {
   @apply text-slate-50 dark:text-slate-800;
 }
