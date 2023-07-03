@@ -107,7 +107,6 @@ function ContainerItem({ index }: { index: number }) {
       init: {},
       animate: {
         opacity: [0, 0, 1, 1],
-        x: isInView ? [50, -20, -20, -20] : 50,
         transition: {
           delayChildren: 1,
           duration: 1.5,
@@ -118,11 +117,9 @@ function ContainerItem({ index }: { index: number }) {
     },
     microchipMessage: {
       init: {
-        display: "none",
         opacity: 0,
       },
       animate: {
-        display: isInView ? "flex" : "none",
         opacity: isInView ? [0, 0, 1] : 0,
         transition: { duration: 1, times: [0, 0.5, 1] },
       },
@@ -160,12 +157,12 @@ function ContainerItem({ index }: { index: number }) {
             variants={variants.messageContainer}
             initial="init"
             animate="animate"
-            className="flex absolute top-36 w-14 h-14 rounded-full right-0 bg-indigo-700/60  backdrop-blur-sm shadow-lg"
+            className="flex absolute right-5 top-36 w-14 h-14 rounded-full bg-indigo-700/60  backdrop-blur-sm shadow-lg"
           >
             {!isAllowed && (
               <motion.h2
                 variants={variants.microchipMessage}
-                className="text-white ml-5 text-2xl h-14 items-center"
+                className="flex text-white ml-5 text-2xl h-14 items-center"
               >
                 Microchip required
               </motion.h2>
