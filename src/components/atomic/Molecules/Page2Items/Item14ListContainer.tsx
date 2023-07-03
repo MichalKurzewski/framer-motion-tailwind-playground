@@ -166,7 +166,7 @@ function ContainerItem({ index }: { index: number }) {
         variants={variants.messageContainer}
         initial="init"
         animate="animate"
-        className="flex  absolute top-36 w-14 h-14 rounded-full right-0 bg-indigo-700/60  backdrop-blur-sm shadow-lg"
+        className="flex absolute top-36 w-14 h-14 rounded-full right-0 bg-indigo-700/60  backdrop-blur-sm shadow-lg"
       >
         {!isAllowed && (
           <motion.h2
