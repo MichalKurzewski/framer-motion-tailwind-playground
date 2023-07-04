@@ -53,37 +53,51 @@ function Padlock({
     padlock: {
       init: {},
       animate: isAllowed
-        ? { fill: isInView ? "rgb(255,255,255)" : "rgb(255,50,0)" }
-        : { fill: isInView ? "rgb(255,50,0)" : "rgb(255,255,255)" },
+        ? {
+            fill: isInView ? "rgb(255,255,255)" : "rgb(244,41,15)",
+            y: [-2, 0, 0, 0],
+            scale: 0.7,
+          }
+        : {
+            fill: isInView ? "rgb(244,41,15)" : "rgb(255,255,255)",
+            y: [0, 0, -2],
+            scale: 0.7,
+          },
     },
     shackle: isAllowed
       ? {
-          init: { originX: "23px", rotateY: 180 },
+          init: { originX: 0.715, rotateY: 180 },
           animate: isInView
             ? { rotateY: [180, 180, 0, 0], y: [4, 0, 0, 0] }
             : {},
         }
       : {
-          init: { originX: "23px" },
+          init: { originX: 0.715 },
           animate: isInView ? { rotateY: 180, y: [0, 0, 4] } : {},
         },
   };
   return (
     <motion.div
       variants={variants.padlock}
-      className={`flex relative w-[60%] h-[60%] center-element ${
-        isAllowed ? "fill-[rgb(255,50,0)]" : "fill-[rgb(255,255,255)]"
+      className={`flex justify-center items-center w-full h-full   ${
+        isAllowed ? "fill-[rgb(244,41,15)]" : "fill-[rgb(255,255,255)]"
       }`}
     >
-      <motion.div className="absolute w-full">
-        <Lock />
-      </motion.div>
-      <motion.div
-        variants={variants.shackle}
-        className="absolute w-full -left-3.5 -top-[3px]"
-      >
-        <Shackle />
-      </motion.div>
+      <div className="relative w-9 h-9 drop-shadow-lg shadow-slate-300">
+        <motion.div className="absolute w-full h-full left-[1px] blur-md fill-black">
+          <Lock className="" />
+        </motion.div>
+        <motion.div className="absolute w-full h-full left-[1px] ">
+          <Lock className="" />
+        </motion.div>
+
+        <motion.div
+          variants={variants.shackle}
+          className="absolute w-full -left-3.5 -top-[3px] "
+        >
+          <Shackle />
+        </motion.div>
+      </div>
     </motion.div>
   );
 }
@@ -112,7 +126,7 @@ function ContainerItem({ index }: { index: number }) {
           duration: 1.5,
           times: isInView ? [0, 0.5, 0.8, 1] : [],
         },
-        width: isInView ? [56, 56, 56, isAllowed ? 56 : 290] : [],
+        width: isInView ? [48, 48, 48, isAllowed ? 48 : 250] : [],
       },
     },
     microchipMessage: {
@@ -157,17 +171,17 @@ function ContainerItem({ index }: { index: number }) {
             variants={variants.messageContainer}
             initial="init"
             animate="animate"
-            className="flex absolute right-5 top-36 w-14 h-14 rounded-full bg-indigo-700/60  backdrop-blur-sm shadow-lg"
+            className="flex absolute right-5 top-36 w-12 h-12 rounded-full bg-indigo-700/60  backdrop-blur-sm shadow-lg"
           >
             {!isAllowed && (
               <motion.h2
                 variants={variants.microchipMessage}
-                className="flex text-white ml-5 text-2xl h-14 items-center"
+                className="flex text-white ml-5 text-xl h-12 items-center"
               >
                 Microchip required
               </motion.h2>
             )}
-            <div className="absolute right-0 top-0 w-14 h-14 rounded-full bg-indigo-200/10 border-2 border-indigo-300/10">
+            <div className="absolute right-0 top-0 w-12 h-12 rounded-full bg-indigo-100/10 border-2 border-indigo-300/10">
               <Padlock isInView={isInView} isAllowed={isAllowed} />
             </div>
           </motion.div>
@@ -194,7 +208,7 @@ const Item14ListContainer = () => {
   };
   useEffect(() => {
     if (isOpen && !isHovering) {
-      const id = setTimeout(() => setIsOpen(false), 10000);
+      const id = setTimeout(() => setIsOpen(false), 100000);
       return () => clearTimeout(id);
     }
   }, [isOpen, isHovering]);
