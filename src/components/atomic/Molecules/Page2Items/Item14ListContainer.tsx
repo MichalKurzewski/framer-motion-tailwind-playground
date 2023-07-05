@@ -105,7 +105,7 @@ function ContainerItem({ index }: { index: number }) {
       animate: {
         opacity: [0, 0, 1, 1],
         transition: {
-          delayChildren: isAllowed ? 0.75 : 1,
+          delayChildren: isAllowed ? 0.75 : 1.2,
           duration: 1,
           times: isInView ? [0, 0.2, 0.6, 1] : [],
         },
@@ -153,7 +153,7 @@ function ContainerItem({ index }: { index: number }) {
           variants={variants.messageContainer}
           initial="init"
           animate="animate"
-          className={`flex absolute right-5 top-36 w-12 h-12 rounded-full bg-indigo-700/20  backdrop-blur-sm ${
+          className={`flex absolute right-5 top-36 w-12 h-12 rounded-full bg-indigo-700/10  backdrop-blur-sm ${
             !isAllowed && "outline outline-white/50"
           }  shadow-lg shadow-slate-900/40`}
         >
@@ -168,8 +168,10 @@ function ContainerItem({ index }: { index: number }) {
           )}
           {isInView && (
             <div
-              className="absolute right-0 top-0 w-12 h-12 rounded-full bg-indigo-500/60
-               shadow-md shadow-slate-900/40"
+              className={`absolute right-0 top-0 w-12 h-12 rounded-full bg-indigo-600 ${
+                isAllowed &&
+                "shadow-lg shadow-slate-900/40"
+              }`}
             >
               <Padlock isInView={isInView} />
             </div>
