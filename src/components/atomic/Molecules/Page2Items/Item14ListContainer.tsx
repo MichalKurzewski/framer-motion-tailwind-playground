@@ -61,7 +61,7 @@ function Padlock({ isInView }: { isInView: boolean }) {
         }
       : {
           init: { originX: 0.735 },
-          animate: isInView ? { rotateY: 180, y: [0, 0, 0, 4] } : {},
+          animate: isInView ? { rotateY: [0,180,180,180], y: [0, 0, 0, 4] } : {},
         },
   };
   return (
