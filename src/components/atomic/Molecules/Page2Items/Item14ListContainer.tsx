@@ -42,58 +42,41 @@ const variants: Record<string, Variants> = {
   },
 };
 
-function Padlock({
-  isInView,
-  isAllowed,
-}: {
-  isInView: boolean;
-  isAllowed: boolean;
-}) {
+function Padlock({ isInView }: { isInView: boolean }) {
+  const [isAllowed] = useAtom(isAllowedAtom);
   const variants: Record<string, Variants> = {
     padlock: {
       init: {},
-      animate: isAllowed
-        ? {
-            fill: isInView ? "rgb(255,255,255)" : "rgb(239 68 68 / 0.9)",
-            y: [-2, 0, 0, 0],
-            scale: 0.7,
-          }
-        : {
-            fill: isInView ? "rgb(239 68 68 / 0.9)" : "rgb(255,255,255)",
-            y: [0, 0, -2],
-            scale: 0.7,
-          },
+      animate: {
+        y: isAllowed ? [-2, 0, 0, 0] : [0, 0, -2],
+        scale: isInView ? 0.9 : 1,
+      },
     },
     shackle: isAllowed
       ? {
-          init: { originX: 0.715, rotateY: 180 },
+          init: { originX: 0.735, rotateY: 180 },
           animate: isInView
             ? { rotateY: [180, 180, 0, 0], y: [4, 0, 0, 0] }
             : {},
         }
       : {
-          init: { originX: 0.715 },
+          init: { originX: 0.735 },
           animate: isInView ? { rotateY: 180, y: [0, 0, 4] } : {},
         },
   };
   return (
     <motion.div
       variants={variants.padlock}
-      className={`flex justify-center items-center w-full h-full   ${
-        isAllowed ? "fill-[rgb(244,41,15)]" : "fill-[rgb(255,255,255)]"
-      }`}
+      className="flex justify-center items-center w-full h-full fill-white "
     >
-      <div className="relative w-9 h-9 drop-shadow-lg shadow-slate-300">
-        <motion.div className="absolute w-full h-full left-[1px] blur-md fill-black">
-          <Lock className="" />
-        </motion.div>
+      <div className="relative w-7 h-7 drop-shadow-lg shadow-slate-300">
         <motion.div className="absolute w-full h-full left-[1px] ">
-          <Lock className="" />
+          <Lock />
         </motion.div>
 
         <motion.div
           variants={variants.shackle}
-          className="absolute w-full -left-3.5 -top-[3px] "
+          className="absolute w-full -left-3 -top-[3px] "
         >
           <Shackle />
         </motion.div>
@@ -103,7 +86,7 @@ function Padlock({
 }
 function ContainerItem({ index }: { index: number }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: false });
   const [isAllowed] = useAtom(isAllowedAtom);
   const variants: Record<string, Variants> = {
     item: {
@@ -159,34 +142,42 @@ function ContainerItem({ index }: { index: number }) {
           placeat quae nostrum voluptate.
         </div>
       </li>
-      {isInView && (
-        <div>
-          <motion.h2
-            variants={variants.item}
-            initial="init"
-            animate="animate"
-            className="flex text-white absolute top-8 text-4xl bg-slate-200/50 w-32 justify-end p-1 backdrop-blur-sm"
-          >{`#00${index}`}</motion.h2>
-          <motion.div
-            variants={variants.messageContainer}
-            initial="init"
-            animate="animate"
-            className="flex absolute right-5 top-36 w-12 h-12 rounded-full bg-indigo-700/60  backdrop-blur-sm shadow-lg"
-          >
-            {!isAllowed && (
-              <motion.h2
-                variants={variants.microchipMessage}
-                className="flex text-white ml-5 text-xl h-12 items-center"
-              >
-                Microchip required
-              </motion.h2>
-            )}
-            <div className="absolute right-0 top-0 w-12 h-12 rounded-full bg-indigo-500/30 border-2 border-indigo-300/10">
-              <Padlock isInView={isInView} isAllowed={isAllowed} />
+
+      <div>
+        <motion.h2
+          variants={variants.item}
+          initial="init"
+          animate="animate"
+          style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.4)" }}
+          className="flex text-white absolute top-8 text-4xl bg-slate-200/30 w-32 justify-end p-1 pr-2 backdrop-blur-sm shadow-md shadow-slate-900/40 "
+        >{`#00${index}`}</motion.h2>
+        <motion.div
+          variants={variants.messageContainer}
+          initial="init"
+          animate="animate"
+          className={`flex absolute right-5 top-36 w-12 h-12 rounded-full bg-indigo-700/20  backdrop-blur-sm ${
+            !isAllowed && "outline outline-white/50"
+          }  shadow-lg shadow-slate-900/40`}
+        >
+          {!isAllowed && (
+            <motion.h2
+              variants={variants.microchipMessage}
+              style={{ textShadow: "2px 2px 4px rgba(0,0,0,1)" }}
+              className="flex text-white ml-5 text-xl h-12 items-center"
+            >
+              Microchip required
+            </motion.h2>
+          )}
+          {isInView && (
+            <div
+              className="absolute right-0 top-0 w-12 h-12 rounded-full bg-indigo-500/60
+               shadow-md shadow-slate-900/40"
+            >
+              <Padlock isInView={isInView} />
             </div>
-          </motion.div>
-        </div>
-      )}
+          )}
+        </motion.div>
+      </div>
     </section>
   );
 }
@@ -376,6 +367,7 @@ function ItemContainer() {
     </div>
   );
 }
+
 const Item14ListContainer = () => {
   const [isOpen, setIsOpen] = useAtom(isOpenAtom);
   const [isHovering, setIsHovering] = useState(false);
