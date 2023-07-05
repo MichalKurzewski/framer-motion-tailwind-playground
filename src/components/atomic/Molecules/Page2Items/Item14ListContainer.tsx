@@ -49,7 +49,7 @@ function Padlock({ isInView }: { isInView: boolean }) {
       init: {},
       animate: {
         y: isAllowed ? [-2, 0, 0, 0] : [0, 0, -2],
-        scale: isInView ? 0.9 : 1,
+        scale: isInView ? 0.8 : 1,
       },
     },
     shackle: isAllowed
@@ -105,20 +105,18 @@ function ContainerItem({ index }: { index: number }) {
       animate: {
         opacity: [0, 0, 1, 1],
         transition: {
-          delayChildren: 1,
-          duration: 1.5,
-          times: isInView ? [0, 0.5, 0.8, 1] : [],
+          delayChildren: isAllowed ? 0.75 : 1,
+          duration: 1,
+          times: isInView ? [0, 0.2, 0.6, 1] : [],
         },
         width: isInView ? [48, 48, 48, isAllowed ? 48 : 250] : [],
       },
     },
     microchipMessage: {
-      init: {
-        opacity: 0,
-      },
+      init: { opacity: 0 },
       animate: {
-        opacity: isInView ? [0, 0, 1] : 0,
-        transition: { duration: 1, times: [0, 0.5, 1] },
+        opacity: isInView ? 1 : 0,
+        transition: { duration: 1 },
       },
     },
   };
