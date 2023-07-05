@@ -12,7 +12,7 @@ const Page2: React.FC = (): JSX.Element => {
   return (
     <>
       <motion.div
-        className="container mx-auto flex p-10 justify-evenly flex-wrap gap-20"
+        className="container mx-auto flex p-10 justify-evenly flex-wrap gap-20 overflow-visible"
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
         exit={{ opacity: 0, x: -50, transition: { duration: 0.5 } }}
@@ -38,22 +38,4 @@ const Page2: React.FC = (): JSX.Element => {
 };
 
 export default Page2;
-// function getsssCircleCoords(
-//   numScopes: number,
-//   radius: number,
-//   centerX: number,
-//   centerY: number
-// ) {
-//   const angle = (2 * Math.PI) / numScopes;
-//   const coords = [];
 
-//   for (let i = 0; i < numScopes; i++) {
-//     const x = centerX + radius * Math.cos(i * angle);
-//     const y = centerY + radius * Math.sin(i * angle);
-//     coords.push({ x, y });
-//   }
-
-//   return coords;
-// }
-// const coords = getCircleCoords(5, 100, 0, 0);
-// console.log(coords)

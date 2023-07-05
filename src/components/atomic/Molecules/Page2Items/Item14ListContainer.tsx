@@ -48,8 +48,8 @@ function Padlock({ isInView }: { isInView: boolean }) {
     padlock: {
       init: {},
       animate: {
-        y: isAllowed ? [-2, 0, 0, 0] : [0, 0, -2],
-        scale: isInView ? 0.8 : 1,
+        y: isAllowed ? [-2, 0, 0, 0] : [0, 0,0, -2],
+        scale: isInView ? 0.9 : 1,
       },
     },
     shackle: isAllowed
@@ -61,7 +61,7 @@ function Padlock({ isInView }: { isInView: boolean }) {
         }
       : {
           init: { originX: 0.735 },
-          animate: isInView ? { rotateY: 180, y: [0, 0, 4] } : {},
+          animate: isInView ? { rotateY: 180, y: [0, 0, 0, 4] } : {},
         },
   };
   return (
