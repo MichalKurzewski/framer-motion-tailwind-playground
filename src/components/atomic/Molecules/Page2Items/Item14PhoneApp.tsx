@@ -368,7 +368,7 @@ function ItemContainer() {
   );
 }
 
-const Item14ListContainer = () => {
+const Item14PhoneApp = () => {
   const [isOpen, setIsOpen] = useAtom(isOpenAtom);
   const [isHovering, setIsHovering] = useState(false);
 
@@ -412,4 +412,4 @@ const Item14ListContainer = () => {
   );
 };
 
-export default Item14ListContainer;
+export default Item14PhoneApp;
