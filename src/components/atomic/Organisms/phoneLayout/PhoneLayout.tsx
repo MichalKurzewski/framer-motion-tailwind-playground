@@ -8,8 +8,7 @@ import { FaShoppingBag } from "react-icons/fa";
 
 import { AiOutlinePlus, AiOutlineWifi } from "react-icons/ai";
 import { MdBattery5Bar } from "react-icons/md";
-import { timerAtom } from "../../../../JotaiStores/timerStore";
-import { useAtom } from "jotai";
+import { Timer } from "../../Molecules/Timer";
 const variants: Record<string, Variants> = {
   sidePanel: {
     init: {},
@@ -42,22 +41,6 @@ interface IPhoneLayout {
 }
 
 function ContainerHeader({ isOpen }: { isOpen: boolean }) {
-  const timerId = useRef<NodeJS.Timeout>();
-  function Timer({ isOpen }: { isOpen: boolean }) {
-    const [time, setTime] = useAtom(timerAtom);
-    useEffect(() => {
-      if (isOpen && !time) {
-        setTime(new Date().toLocaleTimeString());
-        timerId.current = setInterval(() => {
-          console.log("click", new Date().toLocaleTimeString());
-          setTime(new Date().toLocaleTimeString());
-        }, 1000);
-      } else {
-        clearInterval(timerId.current);
-      }
-    }, [isOpen, setTime, time]);
-    return <span>{time}</span>;
-  }
   return (
     <header className=" bg-slate-500 sticky flex flex-col top-0 w-full ">
       <div className="flex justify-between bg-black text-white p-0.5">

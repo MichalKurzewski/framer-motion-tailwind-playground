@@ -1,8 +1,13 @@
-import { motion, Variants } from "framer-motion";
+import {
+  motion,
+  TargetAndTransition,
+  VariantLabels,
+  Variants,
+} from "framer-motion";
 
 interface IItemProps {
   children?: string | JSX.Element | JSX.Element[];
-  whileHover?: any;
+  whileHover?: TargetAndTransition | VariantLabels;
   label: string;
   additionalStyling?: string;
   onClick?: React.MouseEventHandler<HTMLElement> | undefined;
