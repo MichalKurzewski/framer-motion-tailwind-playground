@@ -38,6 +38,8 @@ interface IPhoneLayout {
   children: string | JSX.Element;
   isFooterVisible?: boolean;
   itemAction?: Function;
+  title?: string;
+  timeoutTime?: number;
 }
 
 function ContainerHeader({ isOpen }: { isOpen: boolean }) {
@@ -212,6 +214,8 @@ const PhoneLayout = ({
   isFooterVisible,
   children,
   itemAction,
+  title,
+  timeoutTime = 10000,
 }: IPhoneLayout) => {
   const [isHovering, setIsHovering] = useState(false);
   const containerRef = useRef(null);
@@ -226,14 +230,14 @@ const PhoneLayout = ({
   };
   useEffect(() => {
     if (isOpen && !isHovering) {
-      const id = setTimeout(() => setIsOpen(false), 100000);
+      const id = setTimeout(() => setIsOpen(false), timeoutTime);
       return () => clearTimeout(id);
     }
-  }, [isOpen, isHovering, setIsOpen]);
+  }, [isOpen, isHovering, setIsOpen, timeoutTime]);
 
   return (
     <div className="flex flex-col txt-uni">
-      <span className="text-center txt-color">Phone App</span>
+      <span className="text-center txt-color">{title}</span>
       <motion.div
         ref={containerRef}
         onMouseEnter={handleHoverOrClick}

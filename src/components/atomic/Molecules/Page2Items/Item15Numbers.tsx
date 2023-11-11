@@ -6,14 +6,19 @@ function SpinnerContainer() {
   return <div>a</div>;
 }
 
-const Item15Spinner = () => {
+const Item15Numbers = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <PhoneLayout isOpen={isOpen} setIsOpen={setIsOpen} isFooterVisible={false}>
+    <PhoneLayout
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      isFooterVisible={false}
+      timeoutTime={1000000}
+    >
       <SpinnerContainer></SpinnerContainer>
     </PhoneLayout>
   );
 };
 
-export default Item15Spinner;
+export default Item15Numbers;

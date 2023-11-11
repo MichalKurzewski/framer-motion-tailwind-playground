@@ -120,7 +120,7 @@ function ContainerItem({ index }: { index: number }) {
           initial="init"
           animate="animate"
           style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.4)" }}
-          className="flex text-white absolute top-8 text-4xl bg-slate-200/30 w-32 justify-end p-1 pr-2 backdrop-blur-sm shadow-md shadow-slate-900/40 "
+          className="flex text-white absolute top-8 text-4xl  bg-slate-200/30 w-32 justify-end pb-1 pr-2 backdrop-blur-sm shadow-md shadow-slate-900/40 "
         >{`#00${index}`}</motion.h2>
         <motion.div
           variants={variants.messageContainer}
@@ -206,7 +206,12 @@ const Item14PhoneApp = () => {
     setIsAllowed((current) => !current);
   };
   return (
-    <PhoneLayout isOpen={isOpen} setIsOpen={setIsOpen} itemAction={itemAction}>
+    <PhoneLayout
+      title="Phone App Store"
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      itemAction={itemAction}
+    >
       <ContainerList />
     </PhoneLayout>
   );
