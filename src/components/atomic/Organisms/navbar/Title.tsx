@@ -1,3 +1,4 @@
+import React from "react";
 import { motion, Variants } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import useMediaQuery from "../../../../hooks/useMediaQuery";

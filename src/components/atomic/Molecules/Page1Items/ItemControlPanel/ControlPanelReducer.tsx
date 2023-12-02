@@ -1,8 +1,5 @@
-import {
-  State,
-  Action,
-  ControlConfig,
-} from "../Item8ControlledReducer";
+import React from "react";
+import { State, Action, ControlConfig } from "../Item8ControlledReducer";
 
 interface Props {
   state: State;

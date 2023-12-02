@@ -1,3 +1,4 @@
+import React from "react";
 import { Variants } from "framer-motion";
 import Item from "../Item";
 
@@ -12,9 +13,7 @@ const motionVariants: Variants = {
   },
 };
 const Item2ShapeShift = () => {
-  return (
-    <Item variants={motionVariants} label="Frames Shapeshift"/>
-  );
+  return <Item variants={motionVariants} label="Frames Shapeshift" />;
 };
 
 export default Item2ShapeShift;

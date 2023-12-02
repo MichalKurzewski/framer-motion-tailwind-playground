@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { Variants } from "framer-motion";
 import ControlPanel from "./ItemControlPanel/ControlPanel";

@@ -1,8 +1,8 @@
-import { test } from "vitest";
+import React from "react";
+import { test, expect } from "vitest";
 import { render, fireEvent, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Item12OnHoverCircles from "./Item12OnHoverCircles";
-
 
 test("renders without crashing", () => {
   render(<Item12OnHoverCircles />);

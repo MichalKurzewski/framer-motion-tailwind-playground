@@ -1,6 +1,6 @@
 import PhoneLayout from "../../Organisms/phoneLayout/PhoneLayout";
 
-import { useState } from "react";
+import React, { useState } from "react";
 
 function SpinnerContainer() {
   return <div>a</div>;

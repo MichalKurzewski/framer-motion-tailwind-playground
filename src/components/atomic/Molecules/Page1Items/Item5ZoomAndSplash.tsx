@@ -1,3 +1,4 @@
+import React from "react";
 import { Variants } from "framer-motion";
 import Item from "../Item";
 
@@ -15,9 +16,7 @@ const Item5ZoomAndSplash = () => {
     },
   };
 
-  return (
-    <Item label="Zoom Splash" variants={itemVariants}/>
-  );
+  return <Item label="Zoom Splash" variants={itemVariants} />;
 };
 
 export default Item5ZoomAndSplash;

@@ -1,3 +1,4 @@
+import React from "react";
 import Switcher from "../../Molecules/Switcher";
 import Links from "./Links";
 import { motion, Variants } from "framer-motion";

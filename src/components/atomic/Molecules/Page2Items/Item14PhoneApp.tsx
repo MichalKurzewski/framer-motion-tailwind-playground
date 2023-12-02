@@ -5,7 +5,7 @@ import {
   useScroll,
   useSpring,
 } from "framer-motion";
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { ReactComponent as Shackle } from "../../../../assets/svg/lock.svg";
 import { ReactComponent as Lock } from "../../../../assets/svg/lock2.svg";
 import { useAtom } from "jotai";

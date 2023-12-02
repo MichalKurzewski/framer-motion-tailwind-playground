@@ -1,3 +1,4 @@
+import React from "react";
 import { Variants } from "framer-motion";
 import ControlPanelReducer from "./ItemControlPanel/ControlPanelReducer";
 import { useReducer } from "react";

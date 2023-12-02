@@ -1,3 +1,4 @@
+import React from "react";
 import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -53,8 +54,14 @@ function getVariants(
 
   return variants;
 }
-
-const Item12OnHoverCircles = ({ initNumberOfChildren = 4, offset = 125 }) => {
+interface IHoverCirclesProps {
+  initNumberOfChildren?: number;
+  offset?: number;
+}
+const Item12OnHoverCircles: React.FC<IHoverCirclesProps> = ({
+  initNumberOfChildren = 4,
+  offset = 125,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [numberOfChildren, setNumberOfChildren] =

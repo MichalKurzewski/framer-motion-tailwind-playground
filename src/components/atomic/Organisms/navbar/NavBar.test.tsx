@@ -1,4 +1,5 @@
-import { test } from "vitest";
+import React from "react";
+import { test, beforeEach, expect } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import NavBar from "./NavBar";
 import { BrowserRouter as Router } from "react-router-dom";

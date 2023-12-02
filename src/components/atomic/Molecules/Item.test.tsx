@@ -1,11 +1,12 @@
-import { test } from "vitest";
+import React from "react";
+import { test, expect } from "vitest";
 import { render, fireEvent, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Item from "./Item";
 
-test("renders without crashing", () => {
+test("renders without crashing", async () => {
   render(<Item label="Test Label" />);
-  expect(screen.getByText("Test Label")).toBeInTheDocument();
+  await expect(screen.getByText("Test Label")).toBeInTheDocument();
 });
 
 test("renders children", () => {

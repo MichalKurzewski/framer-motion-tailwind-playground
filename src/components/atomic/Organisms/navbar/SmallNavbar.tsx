@@ -1,3 +1,4 @@
+import React from "react";
 import Links from "./Links";
 import { motion, Variants } from "framer-motion";
 import { useAtom } from "jotai";

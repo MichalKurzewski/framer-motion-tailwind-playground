@@ -1,3 +1,4 @@
+import React from "react";
 interface IInputs {
   name?: string;
   set: React.Dispatch<React.SetStateAction<number>>;
@@ -35,4 +36,3 @@ const ControlPanel = ({ data }: IInputsObjects) => {
 };
 
 export default ControlPanel;
-

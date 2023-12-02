@@ -1,3 +1,4 @@
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./components/atomic/Organisms/navbar/NavBar";
 
@@ -40,7 +41,7 @@ const App: React.FC = () => {
                   element={Object.values(links)[index]}
                 />
               ))}
-              <Route key="welcome" path="/" element={<HomePage />}/>
+              <Route key="welcome" path="/" element={<HomePage />} />
             </Routes>
           </AnimatePresence>
         </LayoutGroup>

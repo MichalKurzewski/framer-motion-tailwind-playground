@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import PicturesPresentation from "./picturesPresentation/PicturesPresentation";
 
@@ -13,7 +14,7 @@ const HomePage: React.FC = (): JSX.Element => {
         Welcome To:
       </motion.div>
       <div>
-        <PicturesPresentation/>
+        <PicturesPresentation />
       </div>
     </>
   );

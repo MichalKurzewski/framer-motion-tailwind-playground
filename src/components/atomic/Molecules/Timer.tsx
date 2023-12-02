@@ -1,3 +1,5 @@
+
+import React from "react";
 import { useEffect, useRef } from "react";
 import { timerAtom } from "../../../JotaiStores/timerStore";
 import { useAtom } from "jotai";
@@ -15,7 +17,6 @@ export function Timer({ isOpen = true }: { isOpen?: boolean }): JSX.Element {
       clearInterval(timerId.current);
       setTime(null);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, setTime]);
   return <span>{time}</span>;
 }

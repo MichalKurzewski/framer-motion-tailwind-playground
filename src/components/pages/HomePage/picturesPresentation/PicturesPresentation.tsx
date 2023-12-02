@@ -1,7 +1,6 @@
+import React from "react";
 const PicturesPresentation = () => {
-    return ( <div className="fixed bottom-0 left-1/2 -translate-x-1/2">
+  return <div className="fixed bottom-0 left-1/2 -translate-x-1/2"></div>;
+};
 
-    </div> );
-}
- 
 export default PicturesPresentation;

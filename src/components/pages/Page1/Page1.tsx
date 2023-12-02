@@ -1,3 +1,4 @@
+import React from "react";
 import Item1HoverTap from "../../atomic/Molecules/Page1Items/Item1HoverTap";
 import Item2ShapeShift from "../../atomic/Molecules/Page1Items/Item2Shapeshift";
 import Item3Opacity from "../../atomic/Molecules/Page1Items/Item3Opacity";

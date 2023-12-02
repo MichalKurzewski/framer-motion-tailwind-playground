@@ -1,3 +1,4 @@
+import React from "react";
 import { motion, Variants } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import useOnClickOutside from "../../../../hooks/useOnClickOutside";
@@ -58,7 +59,7 @@ const SidePanel: React.FC = (): JSX.Element => {
     setIsOpen(false);
   };
   useOnClickOutside(ref, handleClickOutside);
-  const links:  ILinkProps[] = [
+  const links: ILinkProps[] = [
     {
       testId: "link-Codeng.co.uk",
       url: "https://codeng.co.uk",
