@@ -1,3 +1,4 @@
+import React from "react";
 import { ReactComponent as Sun } from "../../../assets/svg/sun.svg";
 import { ReactComponent as Moon } from "../../../assets/svg/moon.svg";
 import { ReactComponent as Rocket } from "../../../assets/svg/rocket2.svg";

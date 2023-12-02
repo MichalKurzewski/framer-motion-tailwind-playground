@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useRef, useState } from "react";
 import useOnClickOutside from "../../../../hooks/useOnClickOutside";
 import { Variants, motion } from "framer-motion";
