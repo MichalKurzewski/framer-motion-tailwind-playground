@@ -10,7 +10,13 @@ export default ({ mode }) => {
   // https://vitejs.dev/config/
   return defineConfig({
     base: "/framer-motion-tailwind-playground/",
-    plugins: [svgr(), react(), eslint()],
+    plugins: [
+      svgr(),
+      react(),
+      eslint({
+        exclude: ["/virtual:/**", "node_modules/**"],
+      }),
+    ],
     test: {
       globals: true,
       environment: "jsdom",
