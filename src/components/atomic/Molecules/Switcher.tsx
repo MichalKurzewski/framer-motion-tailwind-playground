@@ -1,7 +1,7 @@
 import React from "react";
-import { ReactComponent as Sun } from "../../../assets/svg/sun.svg";
-import { ReactComponent as Moon } from "../../../assets/svg/moon.svg";
-import { ReactComponent as Rocket } from "../../../assets/svg/rocket2.svg";
+import Sun from "../../../assets/svg/sun.svg?react";
+import Moon from "../../../assets/svg/moon.svg?react";
+import Rocket from "../../../assets/svg/rocket2.svg?react";
 import useDarkMode from "../../../hooks/useDarkMode";
 import { motion, Variants } from "framer-motion";
 

@@ -6,8 +6,8 @@ import {
   useSpring,
 } from "framer-motion";
 import React, { useRef, useState } from "react";
-import { ReactComponent as Shackle } from "../../../../assets/svg/lock.svg";
-import { ReactComponent as Lock } from "../../../../assets/svg/lock2.svg";
+import Shackle from "../../../../assets/svg/lock.svg?react";
+import Lock from "../../../../assets/svg/lock2.svg?react";
 import { useAtom } from "jotai";
 import { isItem14AllowedAtom } from "../../../../JotaiStores/item14PhoneAppStore";
 import PhoneLayout from "../../Organisms/phoneLayout/PhoneLayout";

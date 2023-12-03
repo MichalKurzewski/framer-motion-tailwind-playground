@@ -3,8 +3,8 @@ import { motion, Variants } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import useOnClickOutside from "../../../../hooks/useOnClickOutside";
 import { ILinkProps } from "./Link";
-import { ReactComponent as Home } from "../../../../assets/svg/home.svg";
-import { ReactComponent as GitHub } from "../../../../assets/svg/github.svg";
+import Home from "../../../../assets/svg/home.svg?react";
+import GitHub from "../../../../assets/svg/github.svg?react";
 import LinksContainer from "./LinksContainer";
 
 const variants: Record<string, Variants> = {
