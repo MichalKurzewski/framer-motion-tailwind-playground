@@ -5,7 +5,7 @@ import { MouseEventHandler } from "react";
 interface PathVariants {
   d?: string;
   variants: Variants;
-  transition?: {};
+  transition?: object;
 }
 
 export const MenuToggle = ({
