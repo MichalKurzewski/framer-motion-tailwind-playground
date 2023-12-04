@@ -2,7 +2,7 @@ import PhoneLayout from "../../Organisms/phoneLayout/PhoneLayout";
 
 import React, { useState } from "react";
 
-function SpinnerContainer() {
+function ProgressBarIndicator() {
   return <div>a</div>;
 }
 

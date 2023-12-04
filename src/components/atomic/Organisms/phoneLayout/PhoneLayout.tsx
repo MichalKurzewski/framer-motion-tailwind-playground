@@ -38,7 +38,7 @@ interface IPhoneLayout {
   setIsOpen: (isOpen: boolean) => void;
   children: string | JSX.Element;
   isFooterVisible?: boolean;
-  itemAction?: () => object;
+  itemAction?: () => void;
   title?: string;
   timeoutTime?: number;
 }
@@ -67,7 +67,7 @@ function ContainerFooter({
   itemAction,
 }: {
   isFooterVisible?: boolean;
-  itemAction?: () => object;
+  itemAction?: () => void;
 }) {
   return (
     <footer
@@ -135,7 +135,7 @@ function ContainerFooter({
 function ActivityButton({
   itemAction,
 }: {
-  itemAction?: () => object;
+  itemAction?: () => void;
 }): JSX.Element {
   const [isToggled, setIsToggled] = useState(true);
   const variants: Record<string, Variants> = {
@@ -193,7 +193,7 @@ function ItemContainer({
   children: string | JSX.Element;
   isFooterVisible?: boolean;
   isOpen: boolean;
-  itemAction?: () => object;
+  itemAction?: () => void;
 }) {
   return (
     <motion.div variants={variants.containerContent}>
