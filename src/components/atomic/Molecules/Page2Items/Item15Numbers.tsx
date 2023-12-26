@@ -1,12 +1,8 @@
+import ProgressBarIndicator from "../../Atoms/ProgressBarIndicator";
 import PhoneLayout from "../../Organisms/phoneLayout/PhoneLayout";
 
 import React, { useState } from "react";
-
-function ProgressBarIndicator() {
-  return <div>a</div>;
-}
-
-const Item15Numbers = () => {
+const Item15ProgressBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -16,9 +12,9 @@ const Item15Numbers = () => {
       isFooterVisible={false}
       timeoutTime={1000000}
     >
-      <SpinnerContainer></SpinnerContainer>
+      <ProgressBarIndicator />
     </PhoneLayout>
   );
 };
 
-export default Item15Numbers;
+export default Item15ProgressBar;

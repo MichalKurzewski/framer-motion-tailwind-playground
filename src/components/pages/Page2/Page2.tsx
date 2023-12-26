@@ -3,7 +3,6 @@ import React, { Suspense } from "react";
 import Item12OnHoverCircles from "../../atomic/Molecules/Page2Items/Item12OnHoverCircles";
 import Item6LoadingSpinner from "../../atomic/Molecules/Page2Items/Item6LoadingSpinner";
 import Item14PhoneApp from "../../atomic/Molecules/Page2Items/Item14PhoneApp";
-import Item15Numbers from "../../atomic/Molecules/Page2Items/Item15Numbers";
 
 //todo extract first frame from lottie to svg to do a fallback.
 const Page2: React.FC = (): JSX.Element => {
@@ -30,7 +29,6 @@ const Page2: React.FC = (): JSX.Element => {
         <Suspense fallback={<div>Loading...</div>}>
           <Item14PhoneApp />
         </Suspense>
-        <Item15Numbers />
       </div>
     </motion.div>
   );
